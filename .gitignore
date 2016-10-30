@@ -1,4 +1,7 @@
 .repo
+
+builds
+
 groot
 groot-groups-service
 groot-quotes-service
