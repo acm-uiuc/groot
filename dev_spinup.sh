@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir -p log
 
 #########################################################################
 #																		#
@@ -17,7 +18,7 @@ go install github.com/acm-uiuc/groot/secrets
 
 go install github.com/acm-uiuc/groot/services
 
-mkdir -p builds 
+mkdir -p build 
 
 go build -o  ./build/groot ./groot/server 
 
@@ -86,10 +87,10 @@ cd ..
 #																		#
 #########################################################################
 
-trap 'kill %1; kill %2; kill %3;' SIGINT
+trap 'kill %1; kill %2; kill %3; kill %4;' SIGINT
 
-node groot-users-service/server.js  | tee groot-users-service_dev.log | sed -e 's/^/[groot-users-service] /' \
-& node groot-groups-service/server.js  | tee groot-groups-service_dev.log | sed -e 's/^/[groot-groups-service] /' \
-& node groot-desktop-frontend/server.js  | tee groot-desktop-frontend_dev.log | sed -e 's/^/[groot-desktop-frontend] /' \
-& ruby groot-recruiters-service/app.rb | tee groot-recruiters-service_dev.log | sed -e 's/^/[groot-recruiters-service] /' \
-& ./builds/groot | tee groot_dev.log | sed -e 's/^/[groot] /' \
+node groot-users-service/server.js  | tee log/groot-users-service_dev.log | sed -e 's/^/[groot-users-service] /' \
+& node groot-groups-service/server.js  | tee log/groot-groups-service_dev.log | sed -e 's/^/[groot-groups-service] /' \
+& node groot-desktop-frontend/server.js  | tee log/groot-desktop-frontend_dev.log | sed -e 's/^/[groot-desktop-frontend] /' \
+& ruby groot-recruiters-service/app.rb | tee log/groot-recruiters-service_dev.log | sed -e 's/^/[groot-recruiters-service] /' \
+& ./builds/groot | tee log/groot_dev.log | sed -e 's/^/[groot] /' \

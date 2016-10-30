@@ -1,8 +1,10 @@
 .repo
+.DS_STORE
 
 builds
 
 groot
+groot-desktop-frontend
 groot-groups-service
 groot-quotes-service
 groot-recruiters-service
