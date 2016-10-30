@@ -16,11 +16,15 @@
     ```
 2. Clone this repo
 3. Within this repo run the following command to start managing the projects
+
+
     ```sh    
     repo init -u git@github.com:acm-uiuc/groot-manifest
     ```
 4. Run the following command to grab the latest releases of the services and frontend
-    ```sh
+   
+   
+   ```sh
     repo sync
     ```
     - If you want to grab the latest ever just run the same command 
