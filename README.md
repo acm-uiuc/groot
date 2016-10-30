@@ -16,6 +16,8 @@
     ```
 2. Clone this repo
 3. Within this repo run the following command to start managing the projects
+
+
     ```sh    
     repo init -u git@github.com:acm-uiuc/groot-manifest
     ```
