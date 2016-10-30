@@ -2,6 +2,7 @@
 
 ###Deploying Groot is now really easy
 1. Install repo - https://android.googlesource.com/tools/repo/
+
     Mac OS
     ```sh
     brew install repo 
