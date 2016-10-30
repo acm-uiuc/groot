@@ -22,11 +22,11 @@
     repo init -u git@github.com:acm-uiuc/groot-manifest
     ```
 4. Run the following command to grab the latest releases of the services and frontend
-   
-   
-   ```sh
+
+    ```sh    
     repo sync
     ```
+
     - If you want to grab the latest ever just run the same command 
 5. Run the ```dev_spinup.sh``` script to start up a dev instance of groot (will grab the latest version of each service on github)
 6. Run the ```prod_spinup.sh``` script to start a production version of groot (will grab the latest version of each and place them in their respective containers, so you will need docker)
