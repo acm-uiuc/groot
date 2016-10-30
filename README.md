@@ -4,6 +4,7 @@
 *Note: This is all a lot easier if you have an ssh key (without a password if you want it to be even easier) attached to your github*
 
 1. Install repo - https://android.googlesource.com/tools/repo/
+
     Mac OS
     ```sh
     brew install repo 
