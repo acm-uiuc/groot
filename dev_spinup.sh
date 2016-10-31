@@ -93,4 +93,4 @@ node groot-users-service/server.js  | tee log/groot-users-service_dev.log | sed 
 & node groot-groups-service/server.js  | tee log/groot-groups-service_dev.log | sed -e 's/^/[groot-groups-service] /' \
 & node groot-desktop-frontend/server.js  | tee log/groot-desktop-frontend_dev.log | sed -e 's/^/[groot-desktop-frontend] /' \
 & ruby groot-recruiters-service/app.rb | tee log/groot-recruiters-service_dev.log | sed -e 's/^/[groot-recruiters-service] /' \
-& ./builds/groot | tee log/groot_dev.log | sed -e 's/^/[groot] /' \
+& ./build/groot | tee log/groot_dev.log | sed -e 's/^/[groot] /' \
