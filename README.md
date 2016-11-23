@@ -12,10 +12,8 @@
 
     Ubuntu 14.04+
     ```sh    
-    mkdir ~/bin
-    PATH=~/bin:$PATH
-    https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-    chmod a+x ~/bin/repo
+    sudo apt install repo
+
     ```
 2. Clone this repo
 3. Within this repo run the following command to start managing the projects
