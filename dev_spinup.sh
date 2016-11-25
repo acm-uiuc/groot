@@ -91,6 +91,6 @@ trap 'kill %1; kill %2; kill %3; kill %4;' SIGINT
 
 node groot-users-service/server.js  | tee log/groot-users-service_dev.log | sed -e 's/^/[groot-users-service] /' \
 & node groot-groups-service/server.js  | tee log/groot-groups-service_dev.log | sed -e 's/^/[groot-groups-service] /' \
-& node groot-desktop-frontend/server.js  | tee log/groot-desktop-frontend_dev.log | sed -e 's/^/[groot-desktop-frontend] /' \
+& npm --prefix ./groot-desktop-frontend start  | tee log/groot-desktop-frontend_dev.log | sed -e 's/^/[groot-desktop-frontend] /' \
 & ruby groot-recruiters-service/app.rb | tee log/groot-recruiters-service_dev.log | sed -e 's/^/[groot-recruiters-service] /' \
 & ./build/groot | tee log/groot_dev.log | sed -e 's/^/[groot] /' \
