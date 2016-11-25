@@ -30,3 +30,80 @@
     - If you want to grab the latest ever just run the same command 
 5. Run the ```dev_spinup.sh``` script to start up a dev instance of groot (will grab the latest version of each service on github)
 6. Run the ```prod_spinup.sh``` script to start a production version of groot (will grab the latest version of each and place them in their respective containers, so you will need docker)
+
+#First Time Setup
+- Golang 
+    + Install Software 
+    ```sh
+    mkdir [SOME DIRECTORY]
+    mkdir [SOME DIRECTORY]/bin && mkdir [SOME DIRECTORY]/lib \
+    && mkdir [SOME DIRECTORY]/src
+    mkdir -p [SOME DIRECTORY]/src/github.com/acm-uiuc
+    ```
+    --- Add to .profile (.zshrc/.bashrc) ---
+    ```sh
+    export GOPATH=[SOME DIRECTORY]
+
+    # macOS 
+    export GOROOT=/usr/local/opt/go/libexec
+    # Ubuntu 14.04+
+    export GOROOT=/usr/local/go
+
+    export PATH=$PATH:$GOPATH/bin
+    export PATH=$PATH:$GOROOT/bin
+    ```
+    ```sh
+    # macOS
+    brew install go
+    # Ubuntu 14.04+
+    sudo curl -O https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz
+    sudo tar -xvf go1.7.linux-amd64.tar.gz
+    sudo mv go /usr/local
+    ```
+    + Add ```groot``` to ```GOPATH```
+    ```sh 
+    ln -s [PATH to groot-deploy]/groot [SOME DIRECTORY]/src/github.com/acm-uiuc/groot
+    ``` 
+- Node
+    + Install Software
+    ```sh
+    # macOS
+    brew install node
+    # Ubuntu 14.04+ 
+    sudo apt-get install nodejs-legacy
+    sudo apt-get install npm
+    ```
+- Ruby
+    + Install Software
+    ```sh
+    #macOS
+    brew install rbenv
+    #Ubuntu 14.04+
+    sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc (~/.profile / ~/.zshrc)
+    echo 'eval "$(rbenv init -)"' >> ~/.bashrc (~/.profile / ~/.zshrc)
+    source ~/.bashrc (~/.profile / ~/.zshrc)
+    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+    rbenv install 2.3.1
+    rbenv global 2.3.1
+    # You may have to restart your terminal session
+    gem install bundler
+    ```
+- MySQL
+    + Install Software
+    ```sh
+    #macOS
+    brew install mysql
+    mysqladmin -u root password 'yourpassword' 
+    mysql.server restart
+    #Ubuntu 14.04+
+    sudo apt-get install mysql-server
+    sudo apt-get install libmysqlclient-dev
+    sudo mysqld --intialize
+    
+    mysql -u root
+    mysql> CREATE DATABASE groot_recruiter_service;
+
+    ```
