@@ -82,15 +82,30 @@ cd ..
 #########################################################################
 #																		#
 #																		#
+#		I N S T A L L   G R O O T   Q U O T E S   S E R V I C E 		#
+#																		#
+#																		#
+#########################################################################
+
+cd groot-quotes-service
+
+bundle install
+
+cd ..
+
+#########################################################################
+#																		#
+#																		#
 #	 					 R U N    G R O O T	   							#
 #																		#
 #																		#
 #########################################################################
 
-trap 'kill %1; kill %2; kill %3; kill %4;' SIGINT
+trap 'kill %1; kill %2; kill %3; kill %4; kill %5;' SIGINT
 
 node groot-users-service/server.js  | tee log/groot-users-service_dev.log | sed -e 's/^/[groot-users-service] /' \
 & node groot-groups-service/server.js  | tee log/groot-groups-service_dev.log | sed -e 's/^/[groot-groups-service] /' \
 & npm --prefix ./groot-desktop-frontend start  | tee log/groot-desktop-frontend_dev.log | sed -e 's/^/[groot-desktop-frontend] /' \
 & ruby groot-recruiters-service/app.rb | tee log/groot-recruiters-service_dev.log | sed -e 's/^/[groot-recruiters-service] /' \
+& ruby groot-quotes-service/app.rb | tee log/groot-quotes-service_dev.log | sed -e 's/^/[groot-quotes-service] /' \
 & ./build/groot | tee log/groot_dev.log | sed -e 's/^/[groot] /' \
