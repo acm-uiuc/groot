@@ -12,9 +12,13 @@ mkdir -p log
 	
 go install github.com/gorilla/mux
 
+go install github.com/boltdb/bolt
+
 go install github.com/acm-uiuc/groot/proxy
 
-go install github.com/acm-uiuc/groot/secrets
+go install github.com/acm-uiuc/groot/config
+
+go install github.com/acm-uiuc/groot/security
 
 go install github.com/acm-uiuc/groot/services
 
@@ -108,4 +112,4 @@ node groot-users-service/server.js  | tee log/groot-users-service_dev.log | sed 
 & npm --prefix ./groot-desktop-frontend start  | tee log/groot-desktop-frontend_dev.log | sed -e 's/^/[groot-desktop-frontend] /' \
 & ruby groot-recruiters-service/app.rb | tee log/groot-recruiters-service_dev.log | sed -e 's/^/[groot-recruiters-service] /' \
 & ruby groot-quotes-service/app.rb | tee log/groot-quotes-service_dev.log | sed -e 's/^/[groot-quotes-service] /' \
-& ./build/groot | tee log/groot_dev.log | sed -e 's/^/[groot] /' \
+& ./build/groot -u | tee log/groot_dev.log | sed -e 's/^/[groot] /' \
