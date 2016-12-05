@@ -44,18 +44,18 @@
     ```sh
     export GOPATH=[SOME DIRECTORY]
 
-    # macOS 
+    #macOS 
     export GOROOT=/usr/local/opt/go/libexec
-    # Ubuntu 14.04+
+    #Ubuntu 14.04+
     export GOROOT=/usr/local/go
 
     export PATH=$PATH:$GOPATH/bin
     export PATH=$PATH:$GOROOT/bin
     ```
     ```sh
-    # macOS
+    #macOS
     brew install go
-    # Ubuntu 14.04+
+    #Ubuntu 14.04+
     sudo curl -O https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz
     sudo tar -xvf go1.7.linux-amd64.tar.gz
     sudo mv go /usr/local
@@ -67,11 +67,19 @@
 - Node
     + Install Software
     ```sh
-    # macOS
+    #macOS
     brew install node
-    # Ubuntu 14.04+ 
-    sudo apt-get install nodejs-legacy
+    #Ubuntu 14.04+  
+    sudo apt-get install nodejs
     sudo apt-get install npm
+    sudo apt-get install build-essential
+    sudo apt-get update
+    sudo apt-get install build-essential libssl-dev
+    curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
+    bash install_nvm.sh
+    source ~/.profile
+    nvm install 7.2.0
+    nvm use 7.2.0
     ```
 - Ruby
     + Install Software
