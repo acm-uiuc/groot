@@ -9,22 +9,9 @@ mkdir -p log/prod
 #																		#
 #																		#
 #########################################################################
-	
-go install github.com/gorilla/mux
 
-go install github.com/boltdb/bolt
-
-go install github.com/acm-uiuc/groot/proxy
-
-go install github.com/acm-uiuc/groot/config
-
-go install github.com/acm-uiuc/groot/security
-
-go install github.com/acm-uiuc/groot/services
-
-mkdir -p build 
-
-go build -o  ./build/groot ./groot/server 
+./groot/build.sh 
+cp groot/build/groot build/groot
 
 #########################################################################
 #																		#
