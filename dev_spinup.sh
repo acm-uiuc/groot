@@ -99,4 +99,4 @@ node groot-users-service/server.js  | tee log/dev/groot-users-service.log | sed 
 & npm --prefix ./groot-desktop-frontend start  | tee log/dev/groot-desktop-frontend.log | sed -e 's/^/[groot-desktop-frontend] /' \
 & ruby groot-recruiters-service/app.rb | tee log/dev/groot-recruiters-service.log | sed -e 's/^/[groot-recruiters-service] /' \
 & ruby groot-quotes-service/app.rb | tee log/dev/groot-quotes-service.log | sed -e 's/^/[groot-quotes-service] /' \
-& ./build/groot -u | tee log/dev/groot.log | sed -e 's/^/[groot] /' \
+& ./build/groot -u | tee log/dev/groot.log | sed -e 's/^/[groot] /'

@@ -94,9 +94,9 @@ cd ..
 
 trap 'kill %1; kill %2; kill %3; kill %4; kill %5;' SIGINT
 
-node groot-users-service/server.js  | tee log/prod/groot-users-service.log | sed -e 's/^/[groot-users-service] /' \
-& node groot-groups-service/server.js  | tee log/prod/groot-groups-service.log | sed -e 's/^/[groot-groups-service] /' \
-& npm --prefix ./groot-desktop-frontend start  | tee log/prod/groot-desktop-frontend.log | sed -e 's/^/[groot-desktop-frontend] /' \
-& ruby groot-recruiters-service/app.rb | tee log/prod/groot-recruiters-service.log | sed -e 's/^/[groot-recruiters-service] /' \
-& ruby groot-quotes-service/app.rb | tee log/prod/groot-quotes-service.log | sed -e 's/^/[groot-quotes-service] /' \
-& ./build/groot | tee log/prod/groot.log | sed -e 's/^/[groot] /' \
+node groot-users-service/server.js  | tee log/prod/groot-users-service.log \
+& node groot-groups-service/server.js  | tee log/prod/groot-groups-service.log \
+& npm --prefix ./groot-desktop-frontend start  | tee log/prod/groot-desktop-frontend.log \
+& ruby groot-recruiters-service/app.rb | tee log/prod/groot-recruiters-service.log \
+& ruby groot-quotes-service/app.rb | tee log/prod/groot-quotes-service.log \
+& ./build/groot | tee log/prod/groot.log
