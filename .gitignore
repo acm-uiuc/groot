@@ -10,6 +10,8 @@ groot-groups-service
 groot-quotes-service
 groot-recruiters-service
 groot-users-service
+groot-events-service
+groot-meme-service
 npm-debug.log
 
 clients.db
