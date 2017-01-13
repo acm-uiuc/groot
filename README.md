@@ -33,6 +33,7 @@
 
 #First Time Setup
 Run ```sudo ./firsttime-ubuntu.sh``` on Ubuntu 14.04+ for express configuration
+Run ```sudo ./firsttime-macos.sh``` on MacOS with Homebrew for express configuration
 - Golang 
     + Install Software 
     ```sh
