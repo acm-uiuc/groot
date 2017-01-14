@@ -1,7 +1,7 @@
 #Groot Deployment 
 
 ###Deploying Groot is now really easy
-*Note: This is all a lot easier if you have an ssh key (without a password if you want it to be even easier) attached to your github*
+*Note: This is necessary for you to have an ssh key (without a password if you want it to be even easier) attached to your github*
 
 1. Install repo - https://android.googlesource.com/tools/repo/
 
@@ -15,12 +15,17 @@
     sudo apt install repo
 
     ```
-2. Clone this repo
-3. Within this repo run the following command to start managing the projects
+2. Make a directory to house your groot work
+    ```sh
+    mkdir groot
+    ```
+    
+3. Within this directory run the following command to start managing the projects
 
     ```sh    
     repo init -u git@github.com:acm-uiuc/groot-manifest
     ```
+    
 4. Run the following command to grab the latest releases of the services and frontend
 
     ```sh    
