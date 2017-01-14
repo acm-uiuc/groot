@@ -104,6 +104,15 @@
     # You may have to restart your terminal session
     gem install bundler
     ```
+- Python 
+    + Install Software
+    ```
+    #macOS 
+    brew install python 
+    #Ubuntu
+    sudo apt install python-pip
+    ```
+    
 - MySQL
     + Install Software
     ```sh
