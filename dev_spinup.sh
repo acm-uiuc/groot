@@ -49,5 +49,5 @@ node groot-users-service/server.js  | tee log/dev/groot-users-service.log | sed 
 & node groot-events-service/server.js  | tee log/dev/groot-events-service.log | sed -e 's/^/[groot-events-service] /' \
 & ruby groot-recruiters-service/app.rb | tee log/dev/groot-recruiters-service.log | sed -e 's/^/[groot-recruiters-service] /' \
 & ruby groot-quotes-service/app.rb | tee log/dev/groot-quotes-service.log | sed -e 's/^/[groot-quotes-service] /' \
-& python groot-meme-service/groot_meme_service/app.py | tee log/dev/groot-meme-service.log | sed -e 's/^/[groot-meme-service] /' \
+& python groot-meme-service/app.py | tee log/dev/groot-meme-service.log | sed -e 's/^/[groot-meme-service] /' \
 & ./build/groot -u | tee log/dev/groot.log | sed -e 's/^/[groot] /'

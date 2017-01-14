@@ -49,5 +49,5 @@ node groot-users-service/server.js  | tee log/prod/groot-users-service.log \
 & node groot-events-service/server.js  | tee log/prod/groot-events-service.log \
 & ruby groot-recruiters-service/app.rb | tee log/prod/groot-recruiters-service.log \
 & ruby groot-quotes-service/app.rb | tee log/prod/groot-quotes-service.log \
-& python groot-meme-service/groot_meme_service/app.py | tee log/prod/groot-meme-service.log \
+& python groot-meme-service/app.py | tee log/prod/groot-meme-service.log \
 & ./build/groot | tee log/prod/groot.log
