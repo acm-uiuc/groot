@@ -114,6 +114,7 @@
     mysql -u root
     mysql> CREATE DATABASE groot_recruiter_service;
     mysql> CREATE DATABASE acm_users;
+    mysql> CREATE DATABASE groot_meme_service;
     mysql> CREATE DATABASE groot_quotes_service;
     ```
 
