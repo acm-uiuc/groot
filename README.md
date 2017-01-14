@@ -1,7 +1,7 @@
 #Groot Deployment 
 
 ###Deploying Groot is now really easy
-*Note: This is necessary for you to have an ssh key (without a password if you want it to be even easier) attached to your github*
+*Note: It is necessary for you to have an ssh key (without a password if you want it to be even easier) attached to your github*
 
 1. Install repo - https://android.googlesource.com/tools/repo/
 
