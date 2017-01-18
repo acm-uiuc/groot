@@ -38,7 +38,7 @@ cd ..
 
 # Groot Meme Service
 cd groot-meme-service
-pip install -r requirements.txt
+pip install -r requirements.txt --user
 cd ..
 
 trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7;' SIGINT
