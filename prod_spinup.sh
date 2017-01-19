@@ -19,6 +19,7 @@ cd ..
 # Groot Desktop Frontend
 cd groot-desktop-frontend
 npm install
+npm build
 cd ..
 
 # Groot Events Service
@@ -43,10 +44,10 @@ cd ..
 
 trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7;' SIGINT
 
-node groot-users-service/server.js  | tee log/prod/groot-users-service.log \
-& node groot-groups-service/server.js  | tee log/prod/groot-groups-service.log \
-& npm --prefix ./groot-desktop-frontend start  | tee log/prod/groot-desktop-frontend.log \
-& node groot-events-service/server.js  | tee log/prod/groot-events-service.log \
+forever -f groot-users-service/server.js  | tee log/prod/groot-users-service.log \
+& forever -f groot-groups-service/server.js  | tee log/prod/groot-groups-service.log \
+& forever -f groot-desktop-frontend/server.js  | tee log/prod/groot-desktop-frontend.log \
+& forever -f groot-events-service/server.js  | tee log/prod/groot-events-service.log \
 & ruby groot-recruiters-service/app.rb | tee log/prod/groot-recruiters-service.log \
 & ruby groot-quotes-service/app.rb | tee log/prod/groot-quotes-service.log \
 & python groot-meme-service/app.py | tee log/prod/groot-meme-service.log \

@@ -85,6 +85,7 @@
     source ~/.profile
     nvm install 7.2.0
     nvm use 7.2.0
+    sudo npm install -g forever
     ```
 - Ruby
     + Install Software
