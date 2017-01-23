@@ -40,7 +40,12 @@ cd ..
 # Groot Meme Service
 cd groot-meme-service
 pip install -r requirements.txt --user
+export MEME_DEBUG=false
 cd ..
+
+# Set Production Env Vars
+export NODE_ENV="production"
+export RACK_ENV="production"
 
 trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7;' SIGINT
 
