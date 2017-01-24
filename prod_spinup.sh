@@ -56,4 +56,4 @@ forever -f groot-users-service/server.js  | tee log/prod/groot-users-service.log
 & forever -f -c ruby groot-recruiters-service/app.rb | tee log/prod/groot-recruiters-service.log \
 & forever -f -c ruby groot-quotes-service/app.rb | tee log/prod/groot-quotes-service.log \
 & forever -f -c python groot-meme-service/app.py | tee log/prod/groot-meme-service.log \
-& forever -f -c /bin/bash scripts/run_groot_prod.sh | tee log/prod/groot.log
+& ./build/groot | tee log/prod/groot.log
