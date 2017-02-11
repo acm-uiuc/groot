@@ -45,6 +45,7 @@ func RegisterAPIs() {
 	Routes = append(Routes, RecruitersRoutes...)
 	Routes = append(Routes, HardwareRoutes...)
 	Routes = append(Routes, MemeRoutes...)
+	Routes = append(Routes, MerchRoutes...)
 	Routes = append(Routes, EventsRoutes...)
 	Routes = append(Routes, CreditsRoutes...)
 }
