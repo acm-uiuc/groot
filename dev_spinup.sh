@@ -8,7 +8,7 @@ cp groot/build/groot build/groot
 
 # Groot Users Service
 cd groot-users-service
-npm install
+bundle install
 cd ..
 
 # Groot Groups Service
@@ -44,7 +44,7 @@ cd ..
 
 trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7;' SIGINT
 
-node groot-users-service/server.js  | tee log/dev/groot-users-service.log | sed -e 's/^/[groot-users-service] /' \
+ruby groot-users-service/app.rb  | tee log/dev/groot-users-service.log | sed -e 's/^/[groot-users-service] /' \
 & node groot-groups-service/server.js  | tee log/dev/groot-groups-service.log | sed -e 's/^/[groot-groups-service] /' \
 & node groot-desktop-frontend/server.js | tee log/dev/groot-desktop-frontend.log | sed -e 's/^/[groot-desktop-frontend] /' \
 & node groot-events-service/server.js  | tee log/dev/groot-events-service.log | sed -e 's/^/[groot-events-service] /' \
