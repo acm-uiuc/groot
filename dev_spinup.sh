@@ -42,7 +42,12 @@ cd groot-meme-service
 pip install -r requirements.txt --user
 cd ..
 
-trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7;' SIGINT
+# Groot Credits Service
+cd groot-credits-service
+pip install -r requirements.txt --user
+cd ..
+
+trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7; kill %8' SIGINT
 
 ruby groot-users-service/app.rb  | tee log/dev/groot-users-service.log | sed -e 's/^/[groot-users-service] /' \
 & node groot-groups-service/server.js  | tee log/dev/groot-groups-service.log | sed -e 's/^/[groot-groups-service] /' \
@@ -51,4 +56,5 @@ ruby groot-users-service/app.rb  | tee log/dev/groot-users-service.log | sed -e 
 & ruby groot-recruiters-service/app.rb | tee log/dev/groot-recruiters-service.log | sed -e 's/^/[groot-recruiters-service] /' \
 & ruby groot-quotes-service/app.rb | tee log/dev/groot-quotes-service.log | sed -e 's/^/[groot-quotes-service] /' \
 & python groot-meme-service/app.py | tee log/dev/groot-meme-service.log | sed -e 's/^/[groot-meme-service] /' \
+& python groot-credits-service/app.py | tee log/dev/groot-credits-service.log | sed -e 's/^/[groot-credits-service] /' \
 & ./build/groot -u | tee log/dev/groot.log | sed -e 's/^/[groot] /'
