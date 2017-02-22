@@ -10,13 +10,69 @@
 
 package services
 
+import (
+	"net/http"
+
+	"github.com/acm-uiuc/groot/proxy"
+)
+
 //Location
-const MerchURL string = "http://localhost:9292"
+const MerchURL string = "http://localhost:9291"
 
 //Service Data Type
 const MerchFormat string = "JSON"
 
 //API Interface
-var MerchRoutes = RouteCollection{}
+var MerchRoutes = RouteCollection{
+	Route{
+		"GetMerchUsers",
+		"GET",
+		"/merch/users",
+		GetMerchUsers,
+	},
+	Route{
+		"GetMerchUser",
+		"GET",
+		"/merch/users/{netid}",
+		GetMerchUser,
+	},
+	Route{
+		"CreateUserTransaction",
+		"POST",
+		"/merch/transactions/",
+		CreateUserTransaction,
+	},
+	Route{
+		"ConfirmUserTransaction",
+		"PUT",
+		"/merch/transactions/",
+		ConfirmUserTransaction,
+	},
+	Route{
+		"GetItems",
+		"GET",
+		"/merch/items/",
+		GetItems,
+	},
+}
 
 //Route handler
+func GetMerchUsers(w http.ResponseWriter, r *http.Request) {
+	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func GetMerchUser(w http.ResponseWriter, r *http.Request) {
+	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func CreateUserTransaction(w http.ResponseWriter, r *http.Request) {
+	proxy.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func ConfirmUserTransaction(w http.ResponseWriter, r *http.Request) {
+	proxy.PUT(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func GetItems(w http.ResponseWriter, r *http.Request) {
+	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
