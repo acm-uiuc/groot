@@ -19,7 +19,7 @@ cd ..
 # Groot Desktop Frontend
 cd groot-desktop-frontend
 npm install
-npm build
+npm run build
 cd ..
 
 # Groot Events Service
