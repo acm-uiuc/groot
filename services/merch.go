@@ -54,6 +54,30 @@ var MerchRoutes = RouteCollection{
 		"/merch/items/",
 		GetItems,
 	},
+	Route{
+		"CreateMerch",
+		"POST",
+		"/merch/items/",
+		CreateMerch,
+	},
+	Route{
+		"GetMerch",
+		"GET",
+		"/merch/items/{id}",
+		GetMerch,
+	},
+	Route{
+		"UpdateMerch",
+		"PUT",
+		"/merch/items/{id}",
+		UpdateMerch,
+	},
+	Route{
+		"DeleteMerch",
+		"DELETE",
+		"/merch/items/{id}",
+		DeleteMerch,
+	},
 }
 
 //Route handler
@@ -75,4 +99,20 @@ func ConfirmUserTransaction(w http.ResponseWriter, r *http.Request) {
 
 func GetItems(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func CreateMerch(w http.ResponseWriter, r *http.Request) {
+	proxy.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func GetMerch(w http.ResponseWriter, r *http.Request) {
+	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func UpdateMerch(w http.ResponseWriter, r *http.Request) {
+	proxy.PUT(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func DeleteMerch(w http.ResponseWriter, r *http.Request) {
+	proxy.DELETE(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
