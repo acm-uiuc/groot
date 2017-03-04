@@ -13,18 +13,11 @@ package services
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/acm-uiuc/arbor/services"
 )
 
-type Route struct {
-	Name        string
-	Method      string
-	Pattern     string
-	HandlerFunc http.HandlerFunc
-}
-
-type RouteCollection []Route
-
-var Routes = RouteCollection{
+var Routes = services.RouteCollection{
 	Route{
 		"Index",
 		"GET",
@@ -34,7 +27,7 @@ var Routes = RouteCollection{
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Welcome!\n")
+	fmt.Fprint(w, "I AM GROOT!\n")
 }
 
 func RegisterAPIs() {
@@ -47,4 +40,5 @@ func RegisterAPIs() {
 	Routes = append(Routes, MemeRoutes...)
 	Routes = append(Routes, EventsRoutes...)
 	Routes = append(Routes, CreditsRoutes...)
+	return Routes
 }

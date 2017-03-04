@@ -13,7 +13,7 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/groot/proxy"
+	"github.com/acm-uiuc/arbor/proxy"
 )
 
 //Location

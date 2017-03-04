@@ -1,8 +1,8 @@
 /**
 * Copyright © 2017, ACM@UIUC
 *
-* This file is part of the Groot Project.  
-* 
+* This file is part of the Groot Project.
+*
 * The Groot Project is open source software, released under the University of
 * Illinois/NCSA Open Source License. You should have received a copy of
 * this license in a file with the distribution.
@@ -12,7 +12,8 @@ package services
 
 import (
 	"net/http"
-	"github.com/acm-uiuc/groot/proxy"
+
+	"github.com/acm-uiuc/arbor/proxy"
 )
 
 //Location
@@ -22,7 +23,7 @@ const GroupsURL string = "http://localhost:9001"
 const GroupsFormat string = "JSON"
 
 //API Interface
-var GroupsRoutes = RouteCollection {
+var GroupsRoutes = RouteCollection{
 	Route{
 		"GetGroupTypes",
 		"GET",

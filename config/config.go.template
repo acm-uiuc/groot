@@ -1,10 +1,18 @@
 package config
 
+import (
+    "github.com/acm-uiuc/arbor/proxy"
+    "github.com/acm-uiuc/arbor/security"
+)
+
+//Groot Specific configurations
 const RecruiterToken string = ""
 const CrowdPrefix = "Basic "
 const CrowdURL string = ""
 const CrowdToken string = ""
 
-const AccessLogLocation string = "log/access.log"
-const ClientRegistryLocation string = "clients.db"
-const AccessControlPolicy string = "*"
+
+//Arbor configurations
+security.AccessLogLocation string = "log/access.log"
+security.ClientRegistryLocation string = "clients.db"
+proxy.AccessControlPolicy string = "*"
