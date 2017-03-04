@@ -2,10 +2,12 @@ package main
 
 import (
 	"github.com/acm-uiuc/arbor/server"
-	"github.com/acm-uiuc/groot/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
+	"github.com/acm-uiuc/groot-api-gateway/services"
 )
 
 func main() {
-	Routes = services.RegisterAPIs()
+	config.ArborConfig()
+	Routes := services.RegisterAPIs()
 	server.Boot(Routes)
 }

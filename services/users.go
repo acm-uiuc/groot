@@ -14,6 +14,7 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor/proxy"
+	"github.com/acm-uiuc/arbor/services"
 )
 
 //Location
@@ -23,44 +24,44 @@ const UsersURL string = "http://localhost:8001"
 const UsersFormat string = "JSON"
 
 //API Interface
-var UsersRoutes = RouteCollection{
-	Route{
+var UsersRoutes = services.RouteCollection{
+	services.Route{
 		"GetUsers",
 		"GET",
 		"/users",
 		GetUsers,
 	},
-	Route{
+	services.Route{
 		"IsMember",
 		"GET",
 		"/users/{netid}/is_member",
 		IsMember,
 	},
-	Route{
+	services.Route{
 		"NewUser",
 		"POST",
 		"/users",
 		NewUser,
 	},
-	Route{
+	services.Route{
 		"ConfirmUser",
 		"PUT",
 		"/users/{user_id}/paid",
 		ConfirmUser,
 	},
-	Route{
+	services.Route{
 		"DeleteUser",
 		"DELETE",
 		"/users/{user_id}",
 		DeleteUser,
 	},
-	Route{
+	services.Route{
 		"UsersLogin",
 		"POST",
 		"/users/login",
 		UsersLogin,
 	},
-	Route{
+	services.Route{
 		"UsersLogout",
 		"POST",
 		"/users/logout",
@@ -68,7 +69,7 @@ var UsersRoutes = RouteCollection{
 	},
 }
 
-//Route handler
+// services.Route handler
 func GetUsers(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, UsersURL+r.URL.String(), UsersFormat, "", r)
 }

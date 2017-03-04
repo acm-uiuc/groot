@@ -18,7 +18,7 @@ import (
 )
 
 var Routes = services.RouteCollection{
-	Route{
+	services.Route{
 		"Index",
 		"GET",
 		"/",
@@ -30,7 +30,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "I AM GROOT!\n")
 }
 
-func RegisterAPIs() {
+func RegisterAPIs() services.RouteCollection {
 	Routes = append(Routes, AuthRoutes...)
 	Routes = append(Routes, GroupsRoutes...)
 	Routes = append(Routes, UsersRoutes...)

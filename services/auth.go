@@ -14,7 +14,8 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/groot/config"
+	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
@@ -27,32 +28,32 @@ const AuthToken string = config.CrowdPrefix + config.CrowdToken
 const AuthFormat string = "JSON"
 
 //API Interface
-var AuthRoutes = RouteCollection{
-	Route{
+var AuthRoutes = services.RouteCollection{
+	services.Route{
 		"NewSession",
 		"POST",
 		"/session",
 		NewSession,
 	},
-	Route{
+	services.Route{
 		"EndUsersSessions",
 		"DELETE",
 		"/session?username={username}",
 		EndUsersSessions,
 	},
-	Route{
+	services.Route{
 		"GetAuthenticatedUser",
 		"GET",
 		"/session/{token}",
 		GetAuthenticatedUser,
 	},
-	Route{
+	services.Route{
 		"ValidateSession",
 		"POST",
 		"/session/{token}",
 		ValidateSession,
 	},
-	Route{
+	services.Route{
 		"EndSession",
 		"DELETE",
 		"/session/{token}",
@@ -60,7 +61,7 @@ var AuthRoutes = RouteCollection{
 	},
 }
 
-//Route handler
+// services.Route handler
 // w = writer, r = reader
 func NewSession(w http.ResponseWriter, r *http.Request) {
 	proxy.POST(w, AuthURL+r.URL.String(), AuthFormat, AuthToken, r)

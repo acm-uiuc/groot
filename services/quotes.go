@@ -14,6 +14,7 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor/proxy"
+	"github.com/acm-uiuc/arbor/services"
 )
 
 //Location
@@ -23,50 +24,50 @@ const QuotesURL string = "http://localhost:9494"
 const QuoteFormat string = "JSON"
 
 //API Interface
-var QuotesRoutes = RouteCollection{
-	Route{
+var QuotesRoutes = services.RouteCollection{
+	services.Route{
 		"GetAllQuotes",
 		"GET",
 		"/quotes",
 		GetAllQuotes,
 	},
-	Route{
+	services.Route{
 		"DeleteQuote",
 		"DELETE",
 		"/quotes/{id}",
 		DeleteQuote,
 	},
-	Route{
+	services.Route{
 		"GetQuote",
 		"GET",
 		"/quotes/{id}",
 		GetQuote,
 	},
-	Route{
+	services.Route{
 		"CastVote",
 		"POST",
 		"/quotes/{id}/vote",
 		CastVote,
 	},
-	Route{
+	services.Route{
 		"ApproveQuote",
 		"PUT",
 		"/quotes/{id}/approve",
 		ApproveQuote,
 	},
-	Route{
+	services.Route{
 		"DeleteVote",
 		"DELETE",
 		"/quotes/{id}/vote",
 		DeleteVote,
 	},
-	Route{
+	services.Route{
 		"CreateQuote",
 		"POST",
 		"/quotes",
 		CreateQuote,
 	},
-	Route{
+	services.Route{
 		"UpdateQuote",
 		"PUT",
 		"/quotes/{id}",
@@ -74,7 +75,7 @@ var QuotesRoutes = RouteCollection{
 	},
 }
 
-//Route handler
+// services.Route handler
 func GetAllQuotes(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, QuotesURL+r.URL.String(), QuoteFormat, "", r)
 }

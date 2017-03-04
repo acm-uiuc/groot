@@ -14,7 +14,8 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor/proxy"
-	"github.com/acm-uiuc/groot/config"
+	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
@@ -26,128 +27,128 @@ const RecruiterToken string = config.RecruiterToken
 const RecruiterFormat string = "JSON"
 
 //API Interface
-var RecruitersRoutes = RouteCollection{
-	Route{
+var RecruitersRoutes = services.RouteCollection{
+	services.Route{
 		"GetJobs",
 		"GET",
 		"/jobs",
 		GetJobs,
 	},
-	Route{
+	services.Route{
 		"CreateJob",
 		"POST",
 		"/jobs",
 		CreateJob,
 	},
-	Route{
+	services.Route{
 		"ApproveJob",
 		"PUT",
 		"/jobs/{job_id}/approve",
 		ApproveJob,
 	},
-	Route{
+	services.Route{
 		"DeleteJob",
 		"DELETE",
 		"/jobs/{job_id}",
 		DeleteJob,
 	},
-	Route{
+	services.Route{
 		"GetRecruiters",
 		"GET",
 		"/recruiters",
 		GetRecruiters,
 	},
-	Route{
+	services.Route{
 		"RecruiterLogin",
 		"POST",
 		"/recruiters/login",
 		RecruiterLogin,
 	},
-	Route{
+	services.Route{
 		"CreateRecruiter",
 		"POST",
 		"/recruiters",
 		CreateRecruiter,
 	},
-	Route{
+	services.Route{
 		"GetRecruiter",
 		"GET",
 		"/recruiters/{recruiter_id}",
 		GetRecruiter,
 	},
-	Route{
+	services.Route{
 		"RenewRecruiter",
 		"PUT",
 		"/recruiters/{recruiter_id}/renew",
 		RenewRecruiter,
 	},
-	Route{
+	services.Route{
 		"ResetAllRecruiters",
 		"POST",
 		"/recruiters/reset",
 		ResetAllRecruiters,
 	},
-	Route{
+	services.Route{
 		"UpdateRecruiter",
 		"PUT",
 		"/recruiters/{recruiter_id}",
 		UpdateRecruiter,
 	},
-	Route{
+	services.Route{
 		"ResetRecruiter",
 		"POST",
 		"/recruiters/reset_password",
 		ResetRecruiter,
 	},
-	Route{
+	services.Route{
 		"GetRecruiterInvite",
 		"GET",
 		"/recruiters/{recruiter_id}/invite",
 		GetRecruiterInvite,
 	},
-	Route{
+	services.Route{
 		"SendRecruiterInvite",
 		"POST",
 		"/recruiters/{recruiter_id}/invite",
 		SendRecruiterInvite,
 	},
-	Route{
+	services.Route{
 		"ResetRecruiterInvite",
 		"POST",
 		"/recruiters/invite",
 		ResetRecruiterInvite,
 	},
-	Route{
+	services.Route{
 		"DeleteRecruiter",
 		"DELETE",
 		"/recruiters/{recruiter_id}",
 		DeleteRecruiter,
 	},
-	Route{
+	services.Route{
 		"GetStudents",
 		"GET",
 		"/students",
 		GetStudents,
 	},
-	Route{
+	services.Route{
 		"CreateStudent",
 		"POST",
 		"/students",
 		CreateStudent,
 	},
-	Route{
+	services.Route{
 		"ApproveStudent",
 		"PUT",
 		"/students/{netid}/approve",
 		ApproveStudent,
 	},
-	Route{
+	services.Route{
 		"GetStudent",
 		"GET",
 		"/students/{netid}",
 		GetStudent,
 	},
-	Route{
+	services.Route{
 		"DeleteStudent",
 		"DELETE",
 		"/students/{netid}",
@@ -155,7 +156,7 @@ var RecruitersRoutes = RouteCollection{
 	},
 }
 
-//Route handler
+// services.Route handler
 func GetJobs(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, RecruiterURL+r.URL.String(), RecruiterFormat, RecruiterToken, r)
 }

@@ -14,6 +14,7 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor/proxy"
+	"github.com/acm-uiuc/arbor/services"
 )
 
 //Location
@@ -23,14 +24,14 @@ const EventsURL string = "http://localhost:8002"
 const EventsFormat string = "JSON"
 
 //API Interface
-var EventsRoutes = RouteCollection{
-	Route{
+var EventsRoutes = services.RouteCollection{
+	services.Route{
 		"GetEvents",
 		"GET",
 		"/events",
 		GetEvents,
 	},
-	Route{
+	services.Route{
 		"GetUpcomingEvents",
 		"GET",
 		"/events/upcoming",
@@ -38,7 +39,7 @@ var EventsRoutes = RouteCollection{
 	},
 }
 
-//Route handler
+// services.Route handler
 func GetEvents(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, EventsURL+r.URL.String(), EventsFormat, "", r)
 }

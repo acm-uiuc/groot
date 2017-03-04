@@ -14,6 +14,7 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor/proxy"
+	"github.com/acm-uiuc/arbor/services"
 )
 
 //Location
@@ -23,50 +24,50 @@ const MemeURL string = "http://localhost:42069"
 const MemeFormat string = "JSON"
 
 //API Interface
-var MemeRoutes = RouteCollection{
-	Route{
+var MemeRoutes = services.RouteCollection{
+	services.Route{
 		"ListMemes",
 		"GET",
 		"/memes",
 		ListMemes,
 	},
-	Route{
+	services.Route{
 		"NewMeme",
 		"POST",
 		"/memes",
 		NewMeme,
 	},
-	Route{
+	services.Route{
 		"MemeInfo",
 		"GET",
 		"/memes/{meme_id}",
 		MemeInfo,
 	},
-	Route{
+	services.Route{
 		"DeleteMeme",
 		"DELETE",
 		"/memes/{meme_id}",
 		DeleteMeme,
 	},
-	Route{
+	services.Route{
 		"ApproveMeme",
 		"PUT",
 		"/memes/{meme_id}/approve",
 		ApproveMeme,
 	},
-	Route{
+	services.Route{
 		"CastMemeVote",
 		"PUT",
 		"/memes/{meme_id}/vote",
 		CastMemeVote,
 	},
-	Route{
+	services.Route{
 		"DeleteMemeVote",
 		"DELETE",
 		"/memes/{meme_id}/vote",
 		DeleteMemeVote,
 	},
-	Route{
+	services.Route{
 		"GetRandomMeme",
 		"GET",
 		"/memes/random",
@@ -74,7 +75,7 @@ var MemeRoutes = RouteCollection{
 	},
 }
 
-//Route handler
+// services.Route handler
 func ListMemes(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, MemeURL+r.URL.String(), MemeFormat, "", r)
 }

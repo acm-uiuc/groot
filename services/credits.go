@@ -14,6 +14,7 @@ import (
 	"net/http"
 
 	"github.com/acm-uiuc/arbor/proxy"
+	"github.com/acm-uiuc/arbor/services"
 )
 
 //Location
@@ -23,38 +24,38 @@ const CreditsURL string = "http://localhost:8765"
 const CreditsFormat string = "JSON"
 
 //API Interface
-var CreditsRoutes = RouteCollection{
-	Route{
+var CreditsRoutes = services.RouteCollection{
+	services.Route{
 		"NewPayment",
 		"POST",
 		"/payment",
 		NewPayment,
 	},
-	Route{
+	services.Route{
 		"GetCreditsUser",
 		"GET",
 		"/credits/users/{netid}",
 		GetCreditsUser,
 	},
-	Route{
+	services.Route{
 		"GetCreditsUserMultiple",
 		"GET",
 		"/credits/users",
 		GetCreditsUserMultiple,
 	},
-	Route{
+	services.Route{
 		"GetTransactions",
 		"GET",
 		"/credits/transactions",
 		GetTransactions,
 	},
-	Route{
+	services.Route{
 		"CreateTransaction",
 		"POST",
 		"/credits/transactions",
 		CreateTransaction,
 	},
-	Route{
+	services.Route{
 		"DeleteTransaction",
 		"DELETE",
 		"/credits/transactions/{id}",
@@ -62,7 +63,7 @@ var CreditsRoutes = RouteCollection{
 	},
 }
 
-//Route handler
+// services.Route handler
 func NewPayment(w http.ResponseWriter, r *http.Request) {
 	proxy.POST(w, CreditsURL+r.URL.String(), CreditsFormat, "", r)
 }
