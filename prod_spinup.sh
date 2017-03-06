@@ -37,6 +37,11 @@ cd groot-quotes-service
 bundle install
 cd ..
 
+# Groot Merch Service
+cd groot-merch-service
+bundle install
+cd ..
+
 # Groot Meme Service
 cd groot-meme-service
 pip install -r requirements.txt --user
@@ -61,6 +66,7 @@ forever -f -c ruby groot-users-service/app.rb  | tee log/prod/groot-users-servic
 & forever -f groot-events-service/server.js  | tee log/prod/groot-events-service.log \
 & forever -f -c ruby groot-recruiters-service/app.rb | tee log/prod/groot-recruiters-service.log \
 & forever -f -c ruby groot-quotes-service/app.rb | tee log/prod/groot-quotes-service.log \
+& forever -f -c ruby groot-merch-service/app.rb | tee log/prod/groot-merch-service.log \
 & forever -f -c python groot-meme-service/app.py | tee log/prod/groot-meme-service.log \
 & forever -f -c python groot-credits-service/app.py | tee log/prod/groot-credits-service.log \
 & ./build/groot | tee log/prod/groot.log
