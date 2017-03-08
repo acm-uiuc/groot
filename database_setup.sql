@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS groot_credits_service;
+CREATE DATABASE IF NOT EXISTS groot_recruiter_service;
+CREATE DATABASE IF NOT EXISTS groot_meme_service;
+CREATE DATABASE IF NOT EXISTS groot_meme_service;
+CREATE DATABASE IF NOT EXISTS acm_users;

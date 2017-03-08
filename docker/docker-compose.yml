@@ -1,0 +1,14 @@
+version: '2'
+services:
+ db:
+   image: mysql
+ web:
+   build: .
+   command: ./dev_spinup.sh
+   volumes:
+     - .:/code
+   ports:
+     - "8000:8000"
+     - "5000:5000"
+   depends_on:
+     - db
