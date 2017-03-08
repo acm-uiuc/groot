@@ -39,25 +39,25 @@ var MerchRoutes = RouteCollection{
 	Route{
 		"CreateUserTransaction",
 		"POST",
-		"/merch/transactions/",
+		"/merch/transactions",
 		CreateUserTransaction,
 	},
 	Route{
 		"ConfirmUserTransaction",
 		"PUT",
-		"/merch/transactions/",
+		"/merch/transactions",
 		ConfirmUserTransaction,
 	},
 	Route{
 		"GetItems",
 		"GET",
-		"/merch/items/",
+		"/merch/items",
 		GetItems,
 	},
 	Route{
 		"CreateMerch",
 		"POST",
-		"/merch/items/",
+		"/merch/items",
 		CreateMerch,
 	},
 	Route{
