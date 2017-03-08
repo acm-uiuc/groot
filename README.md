@@ -1,6 +1,7 @@
 # GROOT
 
 Groot core development:
+
 [![Join the chat at https://gitter.im/acm-uiuc/groot-development](https://badges.gitter.im/acm-uiuc/groot-development.svg)](https://gitter.im/acm-uiuc/groot-development?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Groot is the next generation web application serving the UIUC Chapter of ACM.
