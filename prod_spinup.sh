@@ -54,6 +54,12 @@ pip install -r requirements.txt --user
 export CREDITS_DEBUG=false
 cd ..
 
+# Groot Voz
+cd groot-credits-service
+pip install -r requirements.txt --user
+export VOZ_DEBUG=false
+cd ..
+
 # Set Production Env Vars
 export NODE_ENV="production"
 export RACK_ENV="production"
@@ -69,4 +75,5 @@ forever -f -c ruby groot-users-service/app.rb  | tee log/prod/groot-users-servic
 & forever -f -c ruby groot-merch-service/app.rb | tee log/prod/groot-merch-service.log \
 & forever -f -c python groot-meme-service/app.py | tee log/prod/groot-meme-service.log \
 & forever -f -c python groot-credits-service/app.py | tee log/prod/groot-credits-service.log \
+& forever -f -c python groot-voz/app.py | tee log/prod/groot-voz.log \
 & ./build/groot | tee log/prod/groot.log
