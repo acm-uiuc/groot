@@ -1,5 +1,14 @@
 #Groot Deployment 
 
+Groot core development:
+
+[![Join the chat at https://gitter.im/acm-uiuc/groot-development](https://badges.gitter.im/acm-uiuc/groot-development.svg)](https://gitter.im/acm-uiuc/groot-development?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+Questions on how to add your app to Groot or use the Groot API:
+
+[![Join the chat at https://gitter.im/acm-uiuc/groot-users](https://badges.gitter.im/acm-uiuc/groot-users.svg)](https://gitter.im/acm-uiuc/groot-users?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+
 ###Deploying Groot is now really easy
 *Note: It is necessary for you to have an ssh key (without a password if you want it to be even easier) attached to your github*
 
