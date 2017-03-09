@@ -17,7 +17,7 @@ import (
 )
 
 //Location
-const MerchURL string = "http://localhost:9291"
+const MerchURL string = "http://localhost:6969"
 
 //Service Data Type
 const MerchFormat string = "JSON"
