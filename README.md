@@ -80,6 +80,32 @@ Questions on how to add your app to Groot or use the Groot API:
     ```sh 
     ln -s [PATH to groot-deploy]/groot [SOME DIRECTORY]/src/github.com/acm-uiuc/groot
     ``` 
+    + Install groot dependecies
+    ```sh
+    go get github.com/gorilla/mux
+
+    go get github.com/boltdb/bolt
+
+    go get github.com/kennygrant/sanitize
+
+    go install github.com/gorilla/mux
+
+    go install github.com/boltdb/bolt
+
+    go install github.com/kennygrant/sanitize
+    ```
+
+    + Install packages
+
+    ```sh
+    go install github.com/acm-uiuc/groot/proxy
+
+    go install github.com/acm-uiuc/groot/config
+
+    go install github.com/acm-uiuc/groot/services
+
+    go install github.com/acm-uiuc/groot/security
+    ```
 - Node
     + Install Software
     ```sh
