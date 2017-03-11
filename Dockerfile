@@ -14,7 +14,7 @@ RUN apt-get install -y ruby ruby-dev ruby-bundler libmysqlclient-dev libsqlite3-
 
 ############ INSTALL NODEJS ############
 RUN apt-get install -y curl npm && \
-    npm install n -g && \
+    npm install n less -g && \
     n latest
 
 ############ INSTALL GO ############
