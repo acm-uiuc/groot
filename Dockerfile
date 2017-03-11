@@ -31,16 +31,9 @@ ENV GOROOT /goroot
 ENV GOPATH /gopath
 ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
 
-############ SETUP SSH ############
-
-# RUN mkdir -p /root/.ssh
-# ADD id_rsa /root/.ssh/id_rsa
-# RUN chmod 700 /root/.ssh/id_rsa
-# RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
-
 ############ SETUP GROOT ############
 
-# Get Go Dependencies
+# Install Go Dependencies
 RUN \
   apt-get install -y git-core && \
   go get github.com/gorilla/mux && \
@@ -64,30 +57,6 @@ COPY groot-quotes-service/Gemfile Gemfile
 RUN bundle install && rm Gemfile
 COPY groot-recruiters-service/Gemfile Gemfile
 RUN bundle install && rm Gemfile
-
-# # Install repo
-# RUN \
-#   apt-get install -y curl && \
-#   mkdir ~/bin && \
-#   # Install repo
-#   curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo && \
-#   chmod a+x /bin/repo
-
-# ADD . /groot-deploy
-
-# # Install Groot
-# RUN \
-#   cd /groot-deploy && \
-# #   repo init -u git@github.com:acm-uiuc/groot-manifest && \
-# #   repo sync && \
-#   mkdir -p $GOPATH/src/github.com/acm-uiuc && \
-#   ln -s `pwd`/groot $GOPATH/src/github.com/acm-uiuc/groot
-# #   cp groot/config/config.go.template groot/config/config.go && \
-# #   go install github.com/acm-uiuc/groot/proxy && \
-# #   go install github.com/acm-uiuc/groot/config && \
-# #   go install github.com/acm-uiuc/groot/services && \
-# #   go install github.com/acm-uiuc/groot/security && \
-# # cd ..
 
 WORKDIR /groot-deploy
 
