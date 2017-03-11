@@ -1,17 +1,21 @@
-FROM debian:jessie
-ENV DEBIAN_FRONTEND=noninteractive
+FROM ubuntu
 MAINTAINER ACM@UIUC
 
-RUN apt-get update && \
-    apt-get upgrade && \
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends apt-utils
 
 ############ INSTALL PYTHON ############
-RUN apt-get install -y python python-dev python-pip python-virtualenv
+RUN apt-get install -y python2.7 python2.7-dev python-pip
 
 ############ INSTALL RUBY ############
-RUN apt-get install -y ruby ruby-dev
-RUN sudo gem install bundler
+RUN apt-get install -y ruby ruby-dev ruby-bundler
+
+############ INSTALL NODEJS ############
+RUN apt-get install -y npm && \
+    npm install n -g && \
+    n latest
 
 ############ INSTALL GO ############
 # Install Go
@@ -25,21 +29,48 @@ ENV GOROOT /goroot
 ENV GOPATH /gopath
 ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
 
-############ INSTALL NODEJS ############
-RUN apt-get install -y nodejs npm
-RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
+############ SETUP SSH ############
+
+# RUN mkdir -p /root/.ssh
+# ADD id_rsa /root/.ssh/id_rsa
+# RUN chmod 700 /root/.ssh/id_rsa
+# RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
 ############ SETUP GROOT ############
-ENV PATH=${PATH}:~/bin
+
+# Get Go Dependencies
 RUN \
-  apt-get update && apt-get install -y git-core curl && \
-  mkdir ~/bin && \
-  curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo && \
-  chmod a+x ~/bin/repo && \
-  mkdir groot && \
-  cd groot && \
-  repo init -u git@github.com:acm-uiuc/groot-manifest && \
-  repo sync
+  apt-get install -y git-core && \
+  go get github.com/gorilla/mux && \
+  go get github.com/boltdb/bolt && \
+  go get github.com/kennygrant/sanitize && \
+  go install github.com/gorilla/mux && \
+  go install github.com/boltdb/bolt && \
+  go install github.com/kennygrant/sanitize
+
+# # Install repo
+# RUN \
+#   apt-get install -y curl && \
+#   mkdir ~/bin && \
+#   # Install repo
+#   curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo && \
+#   chmod a+x /bin/repo
+
+# ADD . /groot-deploy
+
+# # Install Groot
+# RUN \
+#   cd /groot-deploy && \
+# #   repo init -u git@github.com:acm-uiuc/groot-manifest && \
+# #   repo sync && \
+#   mkdir -p $GOPATH/src/github.com/acm-uiuc && \
+#   ln -s `pwd`/groot $GOPATH/src/github.com/acm-uiuc/groot
+# #   cp groot/config/config.go.template groot/config/config.go && \
+# #   go install github.com/acm-uiuc/groot/proxy && \
+# #   go install github.com/acm-uiuc/groot/config && \
+# #   go install github.com/acm-uiuc/groot/services && \
+# #   go install github.com/acm-uiuc/groot/security && \
+# # cd ..
 
 EXPOSE 8000
 EXPOSE 5000

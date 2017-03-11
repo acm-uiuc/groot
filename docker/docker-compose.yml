@@ -1,12 +1,16 @@
 version: '2'
 services:
  db:
-   image: mysql
- web:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306
+ groot:
    build: .
    command: ./dev_spinup.sh
    volumes:
-     - .:/code
+     - .:/groot-deploy
    ports:
      - "8000:8000"
      - "5000:5000"
