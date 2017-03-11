@@ -10,10 +10,10 @@ RUN apt-get update -y && \
 RUN apt-get install -y python2.7 python2.7-dev python-pip
 
 ############ INSTALL RUBY ############
-RUN apt-get install -y ruby ruby-dev ruby-bundler
+RUN apt-get install -y ruby ruby-dev ruby-bundler libmysqlclient-dev libsqlite3-dev
 
 ############ INSTALL NODEJS ############
-RUN apt-get install -y npm && \
+RUN apt-get install -y curl npm && \
     npm install n -g && \
     n latest
 
@@ -48,6 +48,21 @@ RUN \
   go install github.com/boltdb/bolt && \
   go install github.com/kennygrant/sanitize
 
+# Install Python dependencies
+COPY groot-credits-service/requirements.txt credits-requirements.txt
+COPY groot-meme-service/requirements.txt meme-requirements.txt
+RUN pip install -r credits-requirements.txt && \
+    pip install -r meme-requirements.txt && \
+    rm credits-requirements.txt meme-requirements.txt
+
+# Install Ruby dependencies
+COPY groot-merch-service/Gemfile Gemfile
+RUN bundle install && rm Gemfile
+COPY groot-quotes-service/Gemfile Gemfile
+RUN bundle install && rm Gemfile
+COPY groot-recruiters-service/Gemfile Gemfile
+RUN bundle install && rm Gemfile
+
 # # Install repo
 # RUN \
 #   apt-get install -y curl && \
@@ -71,6 +86,8 @@ RUN \
 # #   go install github.com/acm-uiuc/groot/services && \
 # #   go install github.com/acm-uiuc/groot/security && \
 # # cd ..
+
+WORKDIR /groot-deploy
 
 EXPOSE 8000
 EXPOSE 5000

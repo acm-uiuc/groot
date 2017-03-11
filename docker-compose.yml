@@ -8,7 +8,8 @@ services:
       - 3306
  groot:
    build: .
-   command: ./dev_spinup.sh
+   command: /bin/bash -c "./docker/groot_setup.sh && ./dev_spinup.sh"
+   working_dir: /groot-deploy
    volumes:
      - .:/groot-deploy
    ports:
