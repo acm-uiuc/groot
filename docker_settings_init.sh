@@ -48,8 +48,8 @@ quotes_database="development:
   password: root
   hostname: db
   name: groot_quote_service_dev"
-echo "$merch_secrets" > groot-quotes-service/config/secrets.yaml
-echo "$merch_database" > groot-quotes-service/config/database.yaml
+echo "$quotes_secrets" > groot-quotes-service/config/secrets.yaml
+echo "$quotes_database" > groot-quotes-service/config/database.yaml
 
 ##### SETUP RECRUITERS #####
 echo "* Setting up RECRUITERS"
@@ -60,8 +60,8 @@ recruiters_database="development:
   password: root
   hostname: db
   name: groot_recruiter_service_dev"
-echo "$merch_secrets" > groot-recruiters-service/config/secrets.yaml
-echo "$merch_database" > groot-recruiters-service/config/database.yaml
+echo "$recruiters_secrets" > groot-recruiters-service/config/secrets.yaml
+echo "$recruiters_database" > groot-recruiters-service/config/database.yaml
 
 ##### SETUP USERS #####
 echo "* Setting up USERS"
@@ -72,8 +72,8 @@ users_database="development:
   password: root
   hostname: db
   name: groot_user_service_dev"
-echo "$merch_secrets" > groot-users-service/config/secrets.yaml
-echo "$merch_database" > groot-users-service/config/database.yaml
+echo "$users_secrets" > groot-users-service/config/secrets.yaml
+echo "$users_database" > groot-users-service/config/database.yaml
 
 ##### SETUP GROOT #####
 echo "* Setting up GROOT"
