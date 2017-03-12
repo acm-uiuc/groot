@@ -74,3 +74,17 @@ users_database="development:
   name: groot_user_service_dev"
 echo "$merch_secrets" > groot-users-service/config/secrets.yaml
 echo "$merch_database" > groot-users-service/config/database.yaml
+
+##### SETUP GROOT #####
+echo "* Setting up GROOT"
+groot_config="package config
+
+const RecruiterToken string = \"\"
+const CrowdPrefix = \"Basic \"
+const CrowdURL string = \"\"
+const CrowdToken string = \"\"
+
+const AccessLogLocation string = \"log/access.log\"
+const ClientRegistryLocation string = \"clients.db\"
+const AccessControlPolicy string = \"*\""
+echo "$groot_config" > groot/config/config.go
