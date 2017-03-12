@@ -11,8 +11,9 @@ const CrowdPrefix = "Basic "
 const CrowdURL string = ""
 const CrowdToken string = ""
 
-
 //Arbor configurations
-security.AccessLogLocation string = "log/access.log"
-security.ClientRegistryLocation string = "clients.db"
-proxy.AccessControlPolicy string = "*"
+func LoadArborConfig() {
+    security.AccessLogLocation = "log/access.log"
+    security.ClientRegistryLocation = "clients.db"
+    proxy.AccessControlPolicy = "*"
+}

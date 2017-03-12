@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	config.ArborConfig()
+	config.LoadArborConfig()
 	Routes := services.RegisterAPIs()
 	server.Boot(Routes)
 }
