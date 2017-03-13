@@ -170,6 +170,49 @@ Questions on how to add your app to Groot or use the Groot API:
     mysql> CREATE DATABASE groot_quotes_service;
     ```
 
+## Deploying with Docker
+
+1. Follow [these](https://docs.docker.com/compose/install/#uninstallation) instructions to install Docker and docker-compose.
+2. Install repo - https://android.googlesource.com/tools/repo/
+
+    Mac OS
+    ```sh
+    brew install repo 
+    ```
+
+    Ubuntu 14.04+
+    ```sh    
+    sudo apt install repo
+
+    ```
+3. Make a directory to house your groot work
+    ```sh
+    mkdir groot-deploy
+    ```
+    
+4. Within this directory run the following command to start managing the projects
+
+    ```sh    
+    repo init -u git@github.com:acm-uiuc/groot-manifest
+    ```
+    
+5. Run the following command to grab the latest releases of the services and frontend
+
+    ```sh    
+    repo sync
+    ```
+
+6. Run the settings init script:
+    ```sh
+    ./docker_settings_init.sh
+    ```
+7. Start up Docker. (This may involve `docker-machine` if you're on a Mac)
+8. Start the Docker containers:
+    ```sh
+    docker-compose up
+    ```
+9. Wait for the image to build and startup. If it works, you'll be able to visit `https://0.0.0.0:5000` in a browser and see the deployed site. The Groot API will be available on port 8000.
+
 ## License
 
 This project is licensed under the University of Illinois/NCSA Open Source License. For a full copy of this license take a look at the LICENSE file. 
