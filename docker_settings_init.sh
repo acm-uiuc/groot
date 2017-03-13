@@ -81,7 +81,7 @@ groot_config="package config
 
 const RecruiterToken string = \"\"
 const CrowdPrefix = \"Basic \"
-const CrowdURL string = \"\"
+const CrowdURL string = \"http://localhost:8001/users\"
 const CrowdToken string = \"\"
 
 const AccessLogLocation string = \"log/access.log\"
