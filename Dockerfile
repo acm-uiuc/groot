@@ -60,5 +60,9 @@ RUN bundle install && rm Gemfile
 
 WORKDIR /groot-deploy
 
+# API Gateway port
 EXPOSE 8000
+# Desktop Frontend port
 EXPOSE 5000
+# Voz port
+EXPOSE 5652
