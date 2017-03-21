@@ -31,10 +31,16 @@ var MerchRoutes = RouteCollection{
 		GetMerchUsers,
 	},
 	Route{
-		"GetMerchUser",
+		"GetMerchUserByNetid",
 		"GET",
 		"/merch/users/{netid}",
-		GetMerchUser,
+		GetMerchUserByNetid,
+	},
+	Route{
+		"GetMerchUserByPin",
+		"GET",
+		"/merch/users/pins/{pin}",
+		GetMerchUserByPin,
 	},
 	Route{
 		"CreateUserTransaction",
@@ -85,7 +91,11 @@ func GetMerchUsers(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
-func GetMerchUser(w http.ResponseWriter, r *http.Request) {
+func GetMerchUserByNetid(w http.ResponseWriter, r *http.Request) {
+	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func GetMerchUserByPin(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
