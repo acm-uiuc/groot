@@ -1,6 +1,6 @@
-#Groot Deployment 
+# Groot Deployment 
 
-###Deploying Groot is now really easy
+### Deploying Groot is now really easy
 
 Groot core development:
 
@@ -11,7 +11,7 @@ Questions on how to add your app to Groot or use the Groot API:
 [![Join the chat at https://gitter.im/acm-uiuc/groot-users](https://badges.gitter.im/acm-uiuc/groot-users.svg)](https://gitter.im/acm-uiuc/groot-users?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-##Getting Started
+## Getting Started
 *Note: It is necessary for you to have an ssh key (without a password if you want it to be even easier) attached to your github*
 
 1. Install repo - https://android.googlesource.com/tools/repo/
