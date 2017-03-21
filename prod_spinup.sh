@@ -54,6 +54,11 @@ pip install -r requirements.txt --user
 export CREDITS_DEBUG=false
 cd ..
 
+# Groot Gigs Service
+cd groot-gigs-service
+pip install -r requirements.txt --user
+cd ..
+
 # Groot Voz
 cd groot-credits-service
 pip install -r requirements.txt --user
@@ -64,7 +69,7 @@ cd ..
 export NODE_ENV="production"
 export RACK_ENV="production"
 
-trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7; kill %8' SIGINT
+trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7; kill %8; kill %9; kill %10; kill %11; kill %12' SIGINT
 
 forever -f -c ruby groot-users-service/app.rb  | tee log/prod/groot-users-service.log \
 & forever -f groot-groups-service/server.js  | tee log/prod/groot-groups-service.log \
@@ -75,5 +80,6 @@ forever -f -c ruby groot-users-service/app.rb  | tee log/prod/groot-users-servic
 & forever -f -c ruby groot-merch-service/app.rb | tee log/prod/groot-merch-service.log \
 & forever -f -c python groot-meme-service/app.py | tee log/prod/groot-meme-service.log \
 & forever -f -c python groot-credits-service/app.py | tee log/prod/groot-credits-service.log \
+& forever -f -c python groot-gigs-service/app.py | tee log/prod/groot-gigs-service.log \
 & forever -f -c python groot-voz/app.py | tee log/prod/groot-voz.log \
 & ./build/groot | tee log/prod/groot.log
