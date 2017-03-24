@@ -196,7 +196,7 @@ Questions on how to add your app to Groot or use the Groot API:
     repo init -u git@github.com:acm-uiuc/groot-manifest
     ```
     
-5. Run the following command to grab the latest releases of the services and frontend
+5. Run the following command to grab the latest releases of all services, including the frontend
 
     ```sh    
     repo sync
