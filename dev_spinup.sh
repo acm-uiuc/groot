@@ -11,6 +11,11 @@ cd groot-users-service
 bundle install
 cd ..
 
+# Groot Auth Service
+cd groot-auth-stub-service
+bundle install
+cd ..
+
 # Groot Groups Service
 cd groot-groups-service
 npm install
@@ -57,9 +62,10 @@ cd groot-voz
 pip install -r requirements.txt --user
 cd ..
 
-trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7; kill %8' SIGINT
+trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7; kill %8; kill %9;' SIGINT
 
 ruby groot-users-service/app.rb  | tee log/dev/groot-users-service.log | sed -e 's/^/[groot-users-service] /' \
+& ruby groot-auth-stub-service/app.rb  | tee log/dev/groot-auth-stub-service.log | sed -e 's/^/[groot-auth-stub-service] /' \
 & node groot-groups-service/server.js  | tee log/dev/groot-groups-service.log | sed -e 's/^/[groot-groups-service] /' \
 & node groot-desktop-frontend/server.js | tee log/dev/groot-desktop-frontend.log | sed -e 's/^/[groot-desktop-frontend] /' \
 & node groot-events-service/server.js  | tee log/dev/groot-events-service.log | sed -e 's/^/[groot-events-service] /' \

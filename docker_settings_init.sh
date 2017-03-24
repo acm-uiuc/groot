@@ -80,9 +80,9 @@ echo "* Setting up GROOT"
 groot_config="package config
 
 const RecruiterToken string = \"\"
-const CrowdPrefix = \"Basic \"
-const CrowdURL string = \"http://localhost:8001/users\"
-const CrowdToken string = \"\"
+const AuthPrefix = \"Basic \"
+const AuthURL string = \"http://localhost:8008/\"
+const AuthToken string = \"\"
 
 const AccessLogLocation string = \"log/access.log\"
 const ClientRegistryLocation string = \"clients.db\"
