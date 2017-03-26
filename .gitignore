@@ -4,14 +4,7 @@
 build
 log
 
-groot
-groot-desktop-frontend
-groot-groups-service
-groot-quotes-service
-groot-recruiters-service
-groot-users-service
-groot-events-service
-groot-meme-service
+groot*
 npm-debug.log
 
 clients.db
