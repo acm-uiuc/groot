@@ -48,6 +48,9 @@ Questions on how to add your app to Groot or use the Groot API:
 6. Run the ```prod_spinup.sh``` script to start a production version of groot (will grab the latest version of each and place them in their respective containers, so you will need docker)
 
 #First Time Setup
+Run ```sudo ./firsttime-ubuntu.sh``` on Ubuntu 14.04+ for express configuration  
+
+Run ```sudo ./firsttime-macos.sh``` on MacOS with Homebrew for express configuration
 - Golang 
     + Install Software 
     ```sh
