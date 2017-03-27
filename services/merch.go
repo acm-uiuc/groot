@@ -25,6 +25,12 @@ const MerchFormat string = "JSON"
 //API Interface
 var MerchRoutes = RouteCollection{
 	Route{
+		"GetMerchLocations",
+		"GET",
+		"/merch/locations",
+		GetMerchLocations,
+	},
+	Route{
 		"GetMerchUsers",
 		"GET",
 		"/merch/users",
@@ -39,7 +45,7 @@ var MerchRoutes = RouteCollection{
 	Route{
 		"GetMerchUserByPin",
 		"GET",
-		"/merch/users/pins/{pin}",
+		"/merch/users/pins",
 		GetMerchUserByPin,
 	},
 	Route{
@@ -87,6 +93,10 @@ var MerchRoutes = RouteCollection{
 }
 
 //Route handler
+func GetMerchLocations(w http.ResponseWriter, r *http.Request) {
+	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
 func GetMerchUsers(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
