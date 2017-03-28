@@ -39,13 +39,14 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 func RegisterAPIs() {
 	Routes = append(Routes, AuthRoutes...)
+	Routes = append(Routes, CreditsRoutes...)
+	Routes = append(Routes, EventsRoutes...)
+	Routes = append(Routes, GigsRoutes...)
 	Routes = append(Routes, GroupsRoutes...)
-	Routes = append(Routes, UsersRoutes...)
-	Routes = append(Routes, QuotesRoutes...)
-	Routes = append(Routes, RecruitersRoutes...)
 	Routes = append(Routes, HardwareRoutes...)
 	Routes = append(Routes, MemeRoutes...)
 	Routes = append(Routes, MerchRoutes...)
-	Routes = append(Routes, EventsRoutes...)
-	Routes = append(Routes, CreditsRoutes...)
+	Routes = append(Routes, QuotesRoutes...)
+	Routes = append(Routes, RecruitersRoutes...)
+	Routes = append(Routes, UsersRoutes...)
 }
