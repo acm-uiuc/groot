@@ -57,12 +57,17 @@ cd groot-credits-service
 pip install -r requirements.txt --user
 cd ..
 
+# Groot Gigs Service
+cd groot-gigs-service
+pip install -r requirements.txt --user
+cd ..
+
 # Groot Voz
 cd groot-voz
 pip install -r requirements.txt --user
 cd ..
 
-trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7; kill %8; kill %9;' SIGINT
+trap 'kill %1; kill %2; kill %3; kill %4; kill %5; kill %6; kill %7; kill %8; kill %9; kill %10; kill %11; kill %12; kill %13' SIGINT
 
 ruby groot-users-service/app.rb  | tee log/dev/groot-users-service.log | sed -e 's/^/[groot-users-service] /' \
 & ruby groot-auth-stub-service/app.rb  | tee log/dev/groot-auth-stub-service.log | sed -e 's/^/[groot-auth-stub-service] /' \
@@ -74,5 +79,6 @@ ruby groot-users-service/app.rb  | tee log/dev/groot-users-service.log | sed -e 
 & ruby groot-merch-service/app.rb | tee log/dev/groot-merch-service.log | sed -e 's/^/[groot-merch-service] /' \
 & python groot-meme-service/app.py | tee log/dev/groot-meme-service.log | sed -e 's/^/[groot-meme-service] /' \
 & python groot-credits-service/app.py | tee log/dev/groot-credits-service.log | sed -e 's/^/[groot-credits-service] /' \
+& python groot-gigs-service/app.py | tee log/dev/groot-gigs-service.log | sed -e 's/^/[groot-gigs-service] /' \
 & python groot-voz/app.py | tee log/dev/groot-voz.log | sed -e 's/^/[groot-voz] /' \
 & ./build/groot -u | tee log/dev/groot.log | sed -e 's/^/[groot] /'
