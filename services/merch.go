@@ -38,8 +38,13 @@ var MerchRoutes = RouteCollection{
 	},
 	Route{
 		"GetMerchUserByPin",
+<<<<<<< Updated upstream
 		"GET",
 		"/merch/users/pins/{pin}",
+=======
+		"POST",
+		"/merch/users/pins",
+>>>>>>> Stashed changes
 		GetMerchUserByPin,
 	},
 	Route{
@@ -96,7 +101,7 @@ func GetMerchUserByNetid(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetMerchUserByPin(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+	proxy.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
 func CreateUserTransaction(w http.ResponseWriter, r *http.Request) {
