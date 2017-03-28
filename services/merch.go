@@ -25,6 +25,24 @@ const MerchFormat string = "JSON"
 //API Interface
 var MerchRoutes = RouteCollection{
 	Route{
+		"GetMerchLocations",
+		"GET",
+		"/merch/locations",
+		GetMerchLocations,
+	},
+	Route{
+		"GetMerchItemAtLocation",
+		"GET",
+		"/merch/locations/{location}",
+		GetMerchItemAtLocation,
+	},
+	Route{
+		"ClearMerchItemAtLocation",
+		"PUT",
+		"/merch/locations/{location}",
+		ClearMerchItemAtLocation,
+	},
+	Route{
 		"GetMerchUsers",
 		"GET",
 		"/merch/users",
@@ -38,13 +56,8 @@ var MerchRoutes = RouteCollection{
 	},
 	Route{
 		"GetMerchUserByPin",
-<<<<<<< Updated upstream
-		"GET",
-		"/merch/users/pins/{pin}",
-=======
 		"POST",
 		"/merch/users/pins",
->>>>>>> Stashed changes
 		GetMerchUserByPin,
 	},
 	Route{
@@ -92,6 +105,18 @@ var MerchRoutes = RouteCollection{
 }
 
 //Route handler
+func GetMerchLocations(w http.ResponseWriter, r *http.Request) {
+	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func GetMerchItemAtLocation(w http.ResponseWriter, r *http.Request) {
+	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func ClearMerchItemAtLocation(w http.ResponseWriter, r *http.Request) {
+	proxy.PUT(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
 func GetMerchUsers(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
