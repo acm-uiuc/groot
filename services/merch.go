@@ -31,6 +31,12 @@ var MerchRoutes = RouteCollection{
 		GetMerchLocations,
 	},
 	Route{
+		"GetMerchItemAtLocation",
+		"GET",
+		"/merch/locations/{location}",
+		GetMerchItemAtLocation,
+	},
+	Route{
 		"GetMerchUsers",
 		"GET",
 		"/merch/users",
@@ -94,6 +100,10 @@ var MerchRoutes = RouteCollection{
 
 //Route handler
 func GetMerchLocations(w http.ResponseWriter, r *http.Request) {
+	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
+}
+
+func GetMerchItemAtLocation(w http.ResponseWriter, r *http.Request) {
 	proxy.GET(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
