@@ -13,7 +13,8 @@ package services
 import (
 	"net/http"
 
-	"github.com/acm-uiuc/groot/proxy"
+	"github.com/acm-uiuc/arbor/proxy"
+	"github.com/acm-uiuc/arbor/services"
 )
 
 //Location
@@ -23,74 +24,74 @@ const MerchURL string = "http://localhost:6969"
 const MerchFormat string = "JSON"
 
 //API Interface
-var MerchRoutes = RouteCollection{
-	Route{
+var MerchRoutes = services.RouteCollection{
+	services.Route{
 		"GetMerchLocations",
 		"GET",
 		"/merch/locations",
 		GetMerchLocations,
 	},
-	Route{
+	services.Route{
 		"GetMerchItemAtLocation",
 		"GET",
 		"/merch/locations/{location}",
 		GetMerchItemAtLocation,
 	},
-	Route{
+	services.Route{
 		"ClearMerchItemAtLocation",
 		"PUT",
 		"/merch/locations/{location}",
 		ClearMerchItemAtLocation,
 	},
-	Route{
+	services.Route{
 		"GetMerchUsers",
 		"GET",
 		"/merch/users",
 		GetMerchUsers,
 	},
-	Route{
+	services.Route{
 		"GetMerchUserByNetid",
 		"GET",
 		"/merch/users/{netid}",
 		GetMerchUserByNetid,
 	},
-	Route{
+	services.Route{
 		"GetMerchUserByPin",
 		"POST",
 		"/merch/users/pins",
 		GetMerchUserByPin,
 	},
-	Route{
+	services.Route{
 		"CreateMerchTransaction",
 		"POST",
 		"/merch/transactions",
 		CreateMerchTransaction,
 	},
-	Route{
+	services.Route{
 		"GetItems",
 		"GET",
 		"/merch/items",
 		GetItems,
 	},
-	Route{
+	services.Route{
 		"CreateMerch",
 		"POST",
 		"/merch/items",
 		CreateMerch,
 	},
-	Route{
+	services.Route{
 		"GetMerch",
 		"GET",
 		"/merch/items/{id}",
 		GetMerch,
 	},
-	Route{
+	services.Route{
 		"UpdateMerch",
 		"PUT",
 		"/merch/items/{id}",
 		UpdateMerch,
 	},
-	Route{
+	services.Route{
 		"DeleteMerch",
 		"DELETE",
 		"/merch/items/{id}",

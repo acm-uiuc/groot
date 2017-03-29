@@ -42,5 +42,5 @@ func RegisterAPIs() services.RouteCollection {
 	Routes = append(Routes, QuotesRoutes...)
 	Routes = append(Routes, RecruitersRoutes...)
 	Routes = append(Routes, UsersRoutes...)
-	return
+	return Routes
 }
