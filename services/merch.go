@@ -67,12 +67,6 @@ var MerchRoutes = RouteCollection{
 		CreateUserTransaction,
 	},
 	Route{
-		"ConfirmUserTransaction",
-		"PUT",
-		"/merch/transactions",
-		ConfirmUserTransaction,
-	},
-	Route{
 		"GetItems",
 		"GET",
 		"/merch/items",
