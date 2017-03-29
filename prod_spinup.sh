@@ -3,8 +3,8 @@
 mkdir -p log/prod
 
 # Groot API
-./groot/build.sh 
-cp groot/build/groot build/groot
+./groot-api-gateway/build.sh 
+cp groot-api-gateway/build/groot-api-gateway build/groot-api-gateway
 
 # Groot Users Service
 cd groot-users-service
@@ -82,4 +82,4 @@ forever -f -c ruby groot-users-service/app.rb  | tee log/prod/groot-users-servic
 & forever -f -c python groot-credits-service/app.py | tee log/prod/groot-credits-service.log \
 & forever -f -c python groot-gigs-service/app.py | tee log/prod/groot-gigs-service.log \
 & forever -f -c python groot-voz/app.py | tee log/prod/groot-voz.log \
-& ./build/groot | tee log/prod/groot.log
+& ./build/groot-api-gateway | tee log/prod/groot-api-gateway.log
