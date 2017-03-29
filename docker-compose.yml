@@ -8,6 +8,15 @@ services:
       - ./database_setup.sql:/docker-entrypoint-initdb.d/schema.sql:ro
     ports:
       - 3306
+    restart: always
+
+  groot-credits-service:
+    build: groot-credits-service
+    ports:
+      - "8765:8765"
+    depends_on:
+      - db
+    restart: always
 
   groot-desktop-frontend:
     build: groot-desktop-frontend
@@ -15,18 +24,54 @@ services:
       - groot-events-service
       - groot-users-service
       - groot-groups-service
+      - groot-quotes-service
     ports:
       - "5000:5000"
+    restart: always
 
   groot-events-service:
     build: groot-events-service
     ports:
       - "8002:8002"
+    restart: always
 
   groot-groups-service:
     build: groot-events-service
     ports:
       - "9001:9001"
+    restart: always
+
+  groot-meme-service:
+    build: groot-meme-service
+    ports:
+      - "42069:42069"
+    depends_on:
+      - db
+    restart: always
+
+  groot-merch-service:
+    build: groot-merch-service
+    ports:
+      - "6969:6969"
+    depends_on:
+      - db
+    restart: always
+
+  groot-quotes-service:
+    build: groot-quotes-service
+    ports:
+      - "9494:9494"
+    depends_on:
+      - db
+    restart: always
+
+  groot-recruiters-service:
+    build: groot-recruiters-service
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    restart: always
 
   groot-users-service:
     build: groot-users-service
@@ -34,3 +79,12 @@ services:
       - "8001:8001"
     depends_on:
       - db
+    restart: always
+
+  groot-voz:
+    build: groot-voz
+    ports:
+      - "5652:5652"
+    depends_on:
+      - db
+    restart: always
