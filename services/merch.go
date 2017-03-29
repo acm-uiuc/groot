@@ -61,10 +61,10 @@ var MerchRoutes = RouteCollection{
 		GetMerchUserByPin,
 	},
 	Route{
-		"CreateTransaction",
+		"CreateMerchTransaction",
 		"POST",
 		"/merch/transactions",
-		CreateTransaction,
+		CreateMerchTransaction,
 	},
 	Route{
 		"GetItems",
@@ -123,7 +123,7 @@ func GetMerchUserByPin(w http.ResponseWriter, r *http.Request) {
 	proxy.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
-func CreateTransaction(w http.ResponseWriter, r *http.Request) {
+func CreateMerchTransaction(w http.ResponseWriter, r *http.Request) {
 	proxy.POST(w, MerchURL+r.URL.String(), MerchFormat, "", r)
 }
 
