@@ -7,9 +7,9 @@ import (
 
 //Groot Specific configurations
 const RecruiterToken string = ""
-const CrowdPrefix = "Basic "
-const CrowdURL string = ""
-const CrowdToken string = ""
+const AuthPrefix = "Basic "
+const AuthURL string = "http://localhost:8008"
+const AuthToken string = ""
 
 //Arbor configurations
 func LoadArborConfig() {
