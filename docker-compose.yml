@@ -1,6 +1,6 @@
 version: '2'
 services:
- db:
+  db:
     image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -8,14 +8,29 @@ services:
       - ./database_setup.sql:/docker-entrypoint-initdb.d/schema.sql:ro
     ports:
       - 3306
- groot:
-   build: .
-   command: /bin/bash -c "./docker_go_symlink.sh && ./dev_spinup.sh"
-   working_dir: /groot-deploy
-   volumes:
-     - .:/groot-deploy
-   ports:
-     - "8000:8000"
-     - "5000:5000"
-   depends_on:
-     - db
+
+  groot-desktop-frontend:
+    build: groot-desktop-frontend
+    depends_on:
+      - groot-events-service
+      - groot-users-service
+      - groot-groups-service
+    ports:
+      - "5000:5000"
+
+  groot-events-service:
+    build: groot-events-service
+    ports:
+      - "8002:8002"
+
+  groot-groups-service:
+    build: groot-events-service
+    ports:
+      - "9001:9001"
+
+  groot-users-service:
+    build: groot-users-service
+    ports:
+      - "8001:8001"
+    depends_on:
+      - db
