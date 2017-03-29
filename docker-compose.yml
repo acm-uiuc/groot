@@ -10,17 +10,25 @@ services:
       - 3306
     restart: always
 
+  groot:
+    build: groot
+    ports:
+      - "8000:8000"
+    restart: always
+
   groot-credits-service:
     build: groot-credits-service
     ports:
       - "8765:8765"
     depends_on:
       - db
+      - groot
     restart: always
 
   groot-desktop-frontend:
     build: groot-desktop-frontend
     depends_on:
+      - groot
       - groot-events-service
       - groot-users-service
       - groot-groups-service
@@ -33,12 +41,16 @@ services:
     build: groot-events-service
     ports:
       - "8002:8002"
+    depends_on:
+      - groot
     restart: always
 
   groot-groups-service:
     build: groot-events-service
     ports:
       - "9001:9001"
+    depends_on:
+      - groot
     restart: always
 
   groot-meme-service:
@@ -47,6 +59,7 @@ services:
       - "42069:42069"
     depends_on:
       - db
+      - groot
     restart: always
 
   groot-merch-service:
@@ -55,6 +68,7 @@ services:
       - "6969:6969"
     depends_on:
       - db
+      - groot
     restart: always
 
   groot-quotes-service:
@@ -63,6 +77,7 @@ services:
       - "9494:9494"
     depends_on:
       - db
+      - groot
     restart: always
 
   groot-recruiters-service:
@@ -71,6 +86,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - groot
     restart: always
 
   groot-users-service:
@@ -79,6 +95,7 @@ services:
       - "8001:8001"
     depends_on:
       - db
+      - groot
     restart: always
 
   groot-voz:
@@ -87,4 +104,5 @@ services:
       - "5652:5652"
     depends_on:
       - db
+      - groot
     restart: always
