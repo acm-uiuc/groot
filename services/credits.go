@@ -18,7 +18,7 @@ import (
 )
 
 //Location
-const CreditsURL string = "http://localhost:8765"
+const CreditsURL string = "http://groot-credits-service:8765"
 
 //Service Data Type
 const CreditsFormat string = "JSON"

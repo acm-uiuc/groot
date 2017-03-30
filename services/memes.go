@@ -18,7 +18,7 @@ import (
 )
 
 //Location
-const MemeURL string = "http://localhost:42069"
+const MemeURL string = "http://groot-memes-service:42069"
 
 //Service Data Type
 const MemeFormat string = "JSON"

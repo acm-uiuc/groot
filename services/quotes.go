@@ -18,7 +18,7 @@ import (
 )
 
 //Location
-const QuotesURL string = "http://localhost:9494"
+const QuotesURL string = "http://groot-quotes-service:9494"
 
 //Service Data Type
 const QuoteFormat string = "JSON"

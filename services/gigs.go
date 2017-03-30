@@ -18,7 +18,7 @@ import (
 )
 
 //Location
-const GigURL string = "http://localhost:8964"
+const GigURL string = "http://groot-gigs-service:8964"
 
 //Service Data Type
 const GigFormat string = "JSON"

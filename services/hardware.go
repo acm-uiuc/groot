@@ -18,7 +18,7 @@ import (
 )
 
 //Location
-const HardwareURL string = "http://localhost:4523/api/v1.0"
+const HardwareURL string = "http://groot:4523/api/v1.0"
 
 //Service Data Type
 const HardwareFormat string = "JSON"

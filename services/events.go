@@ -18,7 +18,7 @@ import (
 )
 
 //Location
-const EventsURL string = "http://localhost:8002"
+const EventsURL string = "http://groot-events-service:8002"
 
 //Service Data Type
 const EventsFormat string = "JSON"

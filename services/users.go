@@ -18,7 +18,7 @@ import (
 )
 
 //Location
-const UsersURL string = "http://localhost:8001"
+const UsersURL string = "http://groot-users-service:8001"
 
 //Service Data Type
 const UsersFormat string = "JSON"

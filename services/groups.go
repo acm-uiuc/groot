@@ -18,7 +18,7 @@ import (
 )
 
 //Location
-const GroupsURL string = "http://localhost:9001"
+const GroupsURL string = "http://groot-groups-service:9001"
 
 //Service Data Type
 const GroupsFormat string = "JSON"

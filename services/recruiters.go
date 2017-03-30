@@ -19,7 +19,7 @@ import (
 )
 
 //Location
-const RecruiterURL string = "http://localhost:4567"
+const RecruiterURL string = "http://groot-recruiters-service:4567"
 
 const RecruiterToken string = config.RecruiterToken
 
