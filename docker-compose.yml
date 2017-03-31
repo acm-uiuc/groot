@@ -6,8 +6,9 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ./database_setup.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - db_data:/var/lib/mysql
     ports:
-      - 3306
+      - "3306:3306"
     restart: always
 
   groot:
@@ -106,3 +107,6 @@ services:
       - db
       - groot
     restart: always
+
+volumes:
+    db_data:
