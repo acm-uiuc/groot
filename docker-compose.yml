@@ -46,6 +46,15 @@ services:
       - groot
     restart: always
 
+  groot-gigs-service:
+    build: groot-gigs-service
+    ports:
+      - "8964:8964"
+    depends_on:
+      - db
+      - groot
+    restart: always
+
   groot-groups-service:
     build: groot-events-service
     ports:
