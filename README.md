@@ -127,6 +127,18 @@ groot [-r | --register-client client_name] [-c | --check-registration token] [-u
 > runs groot with the security layer
 
 
+## Docker
+
+#### Creating a client key:
+```
+docker-compose run groot ./build/groot -r <client_name>
+```
+
+#### Checking a client key: 
+```
+docker-compose run groot ./build/groot -c <client_key>
+```
+
 ## License
 
 This project is licensed under the University of Illinois/NCSA Open Source License. For a full copy of this license take a look at the LICENSE file. 

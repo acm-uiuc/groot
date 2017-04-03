@@ -19,8 +19,12 @@ RUN go get github.com/gorilla/mux && \
 # Bundle app source
 ADD . /usr/src/app
 
+# Create symlink to GOPATH for groot
 RUN mkdir -p $GOPATH/src/github.com/acm-uiuc && \
     ln -sf /usr/src/app $GOPATH/src/github.com/acm-uiuc/groot
+
+# Create folder for client key database
+RUN mkdir -p /var/groot/clients_db
 
 # Build groot
 ADD build.sh /usr/src/app
