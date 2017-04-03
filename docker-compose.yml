@@ -58,7 +58,7 @@ services:
     restart: always
 
   groot-groups-service:
-    build: groot-events-service
+    build: groot-groups-service
     ports:
       - "9001:9001"
     depends_on:
