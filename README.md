@@ -47,7 +47,7 @@ Questions on how to add your app to Groot or use the Groot API:
 5. Run the ```dev_spinup.sh``` script to start up a dev instance of groot (will grab the latest version of each service on github)
 6. Run the ```prod_spinup.sh``` script to start a production version of groot (will grab the latest version of each and place them in their respective containers, so you will need docker)
 
-#First Time Setup
+# First Time Setup
 - Golang 
     + Install Software 
     ```sh
