@@ -15,10 +15,11 @@ import (
 
 	"github.com/acm-uiuc/arbor/proxy"
 	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const CreditsURL string = "http://groot-credits-service:8765"
+const CreditsURL string = config.CreditsURL
 
 //Service Data Type
 const CreditsFormat string = "JSON"

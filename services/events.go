@@ -15,10 +15,11 @@ import (
 
 	"github.com/acm-uiuc/arbor/proxy"
 	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const EventsURL string = "http://groot-events-service:8002"
+const EventsURL string = config.EventsURL
 
 //Service Data Type
 const EventsFormat string = "JSON"

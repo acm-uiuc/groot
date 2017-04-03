@@ -11,6 +11,18 @@ const AuthPrefix = "Basic "
 const AuthURL string = "http://localhost:8008"
 const AuthToken string = ""
 
+//Service hosts
+const CreditsURL = "http://localhost:8765"
+const EventsURL = "http://localhost:8002"
+const GigsURL = "http://localhost:8964"
+const GroupsURL = "http://localhost:9001"
+const HardwareURL = "http://localhost:4523/api/v1.0"
+const MemesURL = "http://localhost:42069"
+const MerchURL = "http://localhost:6969"
+const QuotesURL = "http://localhost:9494"
+const RecruiterURL = "http://localhost:4567"
+const UsersURL = "http://localhost:8001"
+
 //Arbor configurations
 func LoadArborConfig() {
     security.AccessLogLocation = "log/access.log"

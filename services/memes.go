@@ -15,10 +15,11 @@ import (
 
 	"github.com/acm-uiuc/arbor/proxy"
 	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const MemeURL string = "http://groot-meme-service:42069"
+const MemesURL string = config.MemesURL
 
 //Service Data Type
 const MemeFormat string = "JSON"
@@ -77,33 +78,33 @@ var MemeRoutes = services.RouteCollection{
 
 // services.Route handler
 func ListMemes(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	proxy.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func NewMeme(w http.ResponseWriter, r *http.Request) {
-	proxy.POST(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	proxy.POST(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func MemeInfo(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	proxy.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func DeleteMeme(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	proxy.DELETE(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func ApproveMeme(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	proxy.PUT(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func CastMemeVote(w http.ResponseWriter, r *http.Request) {
-	proxy.PUT(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	proxy.PUT(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func DeleteMemeVote(w http.ResponseWriter, r *http.Request) {
-	proxy.DELETE(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	proxy.DELETE(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }
 
 func GetRandomMeme(w http.ResponseWriter, r *http.Request) {
-	proxy.GET(w, MemeURL+r.URL.String(), MemeFormat, "", r)
+	proxy.GET(w, MemesURL+r.URL.String(), MemeFormat, "", r)
 }

@@ -15,10 +15,11 @@ import (
 
 	"github.com/acm-uiuc/arbor/proxy"
 	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const GroupsURL string = "http://groot-groups-service:9001"
+const GroupsURL string = config.GroupsURL
 
 //Service Data Type
 const GroupsFormat string = "JSON"

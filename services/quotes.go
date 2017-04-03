@@ -15,10 +15,11 @@ import (
 
 	"github.com/acm-uiuc/arbor/proxy"
 	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const QuotesURL string = "http://groot-quotes-service:9494"
+const QuotesURL string = config.QuotesURL
 
 //Service Data Type
 const QuoteFormat string = "JSON"

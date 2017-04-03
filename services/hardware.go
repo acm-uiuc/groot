@@ -15,10 +15,11 @@ import (
 
 	"github.com/acm-uiuc/arbor/proxy"
 	"github.com/acm-uiuc/arbor/services"
+	"github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const HardwareURL string = "http://groot:4523/api/v1.0"
+const HardwareURL string = config.HardwareURL
 
 //Service Data Type
 const HardwareFormat string = "JSON"

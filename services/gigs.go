@@ -15,10 +15,11 @@ import (
 
 	"github.com/acm-uiuc/arbor/proxy"
 	"github.com/acm-uiuc/arbor/services"
+    "github.com/acm-uiuc/groot-api-gateway/config"
 )
 
 //Location
-const GigURL string = "http://groot-gigs-service:8964"
+const GigsURL string = config.GigsURL
 
 //Service Data Type
 const GigFormat string = "JSON"
@@ -89,41 +90,41 @@ var GigsRoutes = services.RouteCollection{
 
 //Route handler
 func ListGigs(w http.ResponseWriter, r *http.Request) {
-    proxy.GET(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func NewGig(w http.ResponseWriter, r *http.Request) {
-    proxy.POST(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.POST(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func GigInfo(w http.ResponseWriter, r *http.Request) {
-    proxy.GET(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func CreateClaim(w http.ResponseWriter, r *http.Request) {
-    proxy.POST(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.POST(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func DeactivateGig(w http.ResponseWriter, r *http.Request) {
-    proxy.PUT(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func DeleteGig(w http.ResponseWriter, r *http.Request) {
-    proxy.DELETE(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.DELETE(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func ListClaims(w http.ResponseWriter, r *http.Request) {
-    proxy.GET(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func ListSingleClaim(w http.ResponseWriter, r *http.Request) {
-    proxy.GET(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.GET(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func AcceptClaim(w http.ResponseWriter, r *http.Request) {
-    proxy.PUT(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.PUT(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
 
 func DeleteClaim(w http.ResponseWriter, r *http.Request) {
-    proxy.DELETE(w, GigURL+r.URL.String(), GigFormat, "", r)
+    proxy.DELETE(w, GigsURL+r.URL.String(), GigFormat, "", r)
 }
