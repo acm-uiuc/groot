@@ -24,7 +24,7 @@ RUN mkdir -p $GOPATH/src/github.com/acm-uiuc && \
     ln -sf /usr/src/app $GOPATH/src/github.com/acm-uiuc/groot
 
 # Create folder for client key database
-RUN mkdir -p /var/groot/clients_db
+RUN mkdir -p /var/groot/
 
 # Build groot
 ADD build.sh /usr/src/app

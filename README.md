@@ -139,6 +139,29 @@ docker-compose run groot ./build/groot -r <client_name>
 docker-compose run groot ./build/groot -c <client_key>
 ```
 
+#### Config Values
+To allow all services to work with the docker network, make sure to set these values in `config.go`:
+```go
+//Service hosts
+const CreditsURL = "http://groot-credits-service:8765"
+const EventsURL = "http://groot-events-service:8002"
+const GigsURL = "http://groot-gigs-service:8964"
+const GroupsURL = "http://groot-groups-service:9001"
+const HardwareURL = "http://groot:4523/api/v1.0"
+const MemesURL = "http://groot-meme-service:42069"
+const MerchURL = "http://groot-merch-service:6969"
+const QuotesURL = "http://groot-quotes-service:9494"
+const RecruiterURL = "http://groot-recruiters-service:4567"
+const UsersURL = "http://groot-users-service:8001"
+
+//Arbor configurations
+func LoadArborConfig() {
+    security.AccessLogLocation = "/var/groot/access.log"
+    security.ClientRegistryLocation = "/var/groot/clients.db"
+    proxy.AccessControlPolicy = "*"
+}
+```
+
 ## License
 
 This project is licensed under the University of Illinois/NCSA Open Source License. For a full copy of this license take a look at the LICENSE file. 
