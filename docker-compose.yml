@@ -11,12 +11,13 @@ services:
       - "3306:3306"
     restart: always
 
-  groot:
-    build: groot
+  groot-api-gateway:
+    build: groot-api-gateway
     ports:
       - "8000:8000"
     volumes: 
-      - clients_db:/var/groot/
+      - groot_api_gateway_volume:/var/groot/
+
     restart: always
 
   groot-credits-service:
@@ -32,10 +33,6 @@ services:
     build: groot-desktop-frontend
     depends_on:
       - groot
-      - groot-events-service
-      - groot-users-service
-      - groot-groups-service
-      - groot-quotes-service
     ports:
       - "5000:5000"
     restart: always
@@ -121,4 +118,4 @@ services:
 
 volumes:
     db_data:
-    clients_db:
+    groot_api_gateway_volume:
