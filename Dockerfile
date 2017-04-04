@@ -38,4 +38,4 @@ RUN mkdir -p /var/groot-api-gateway/
 ADD build.sh /usr/src/app
 RUN ./build.sh
 
-CMD ["./build/groot"]
+CMD ["./build/groot-api-gateway"]
