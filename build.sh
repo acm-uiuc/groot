@@ -34,4 +34,4 @@ echo Building groot-api-gateway
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 mkdir -p build 
 echo Placing binary in [PATH TO GROOT]/build
-(cd $DIR; go build -o  $DIR/build/groot .) 
+(cd $DIR; go build -o  $DIR/build/groot-api-gateway .) 
