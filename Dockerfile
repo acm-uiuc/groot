@@ -29,10 +29,10 @@ ADD . /usr/src/app
 
 # Create symlink to GOPATH for groot
 RUN mkdir -p $GOPATH/src/github.com/acm-uiuc && \
-    ln -sf /usr/src/app $GOPATH/src/github.com/acm-uiuc/groot
+    ln -sf /usr/src/app $GOPATH/src/github.com/acm-uiuc/groot-api-gateway
 
 # Create folder for client key database
-RUN mkdir -p /var/groot/
+RUN mkdir -p /var/groot-api-gateway/
 
 # Build groot
 ADD build.sh /usr/src/app

@@ -156,8 +156,8 @@ const UsersURL = "http://groot-users-service:8001"
 
 //Arbor configurations
 func LoadArborConfig() {
-    security.AccessLogLocation = "/var/groot/access.log"
-    security.ClientRegistryLocation = "/var/groot/clients.db"
+    security.AccessLogLocation = "/var/groot-api-gateway/access.log"
+    security.ClientRegistryLocation = "/var/groot-api-gateway/clients.db"
     proxy.AccessControlPolicy = "*"
 }
 ```
