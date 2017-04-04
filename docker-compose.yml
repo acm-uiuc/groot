@@ -26,13 +26,13 @@ services:
       - "8765:8765"
     depends_on:
       - db
-      - groot
+      - groot-api-gateway
     restart: always
 
   groot-desktop-frontend:
     build: groot-desktop-frontend
     depends_on:
-      - groot
+      - groot-api-gateway
     ports:
       - "5000:5000"
     restart: always
@@ -42,7 +42,7 @@ services:
     ports:
       - "8002:8002"
     depends_on:
-      - groot
+      - groot-api-gateway
     restart: always
 
   groot-gigs-service:
@@ -51,7 +51,7 @@ services:
       - "8964:8964"
     depends_on:
       - db
-      - groot
+      - groot-api-gateway
     restart: always
 
   groot-groups-service:
@@ -59,7 +59,7 @@ services:
     ports:
       - "9001:9001"
     depends_on:
-      - groot
+      - groot-api-gateway
     restart: always
 
   groot-meme-service:
@@ -68,7 +68,7 @@ services:
       - "42069:42069"
     depends_on:
       - db
-      - groot
+      - groot-api-gateway
     restart: always
 
   groot-merch-service:
@@ -77,7 +77,7 @@ services:
       - "6969:6969"
     depends_on:
       - db
-      - groot
+      - groot-api-gateway
     restart: always
 
   groot-quotes-service:
@@ -86,7 +86,7 @@ services:
       - "9494:9494"
     depends_on:
       - db
-      - groot
+      - groot-api-gateway
     restart: always
 
   groot-recruiters-service:
@@ -95,7 +95,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
-      - groot
+      - groot-api-gateway
     restart: always
 
   groot-users-service:
@@ -104,7 +104,7 @@ services:
       - "8001:8001"
     depends_on:
       - db
-      - groot
+      - groot-api-gateway
     restart: always
 
   groot-voz:
@@ -113,7 +113,7 @@ services:
       - "5652:5652"
     depends_on:
       - db
-      - groot
+      - groot-api-gateway
     restart: always
 
 volumes:
