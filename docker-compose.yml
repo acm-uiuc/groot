@@ -16,7 +16,7 @@ services:
     ports:
       - "8000:8000"
     volumes: 
-      - groot_api_gateway_volume:/var/groot/
+      - groot_api_gateway_volume:/var/groot-api-gateway/
 
     restart: always
 
