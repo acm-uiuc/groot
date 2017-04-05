@@ -1,4 +1,4 @@
-# Groot Deployment 
+# Groot
 
 ### Deploying Groot is now really easy
 
@@ -78,7 +78,7 @@ Questions on how to add your app to Groot or use the Groot API:
     ```
     + Add ```groot``` to ```GOPATH```
     ```sh 
-    ln -s [PATH to groot-deploy]/groot [SOME DIRECTORY]/src/github.com/acm-uiuc/groot
+    ln -s [PATH to groot-deploy]/groot-api-gateway [SOME DIRECTORY]/src/github.com/acm-uiuc/groot-api-gateway
     ``` 
     + Install groot dependecies
     ```sh
