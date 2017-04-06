@@ -3,8 +3,8 @@
 mkdir -p log/dev
 
 # Groot API
-./groot/build.sh 
-cp groot/build/groot build/groot
+./groot-api-gateway/build.sh 
+cp groot-api-gateway/build/groot-api-gateway build/groot-api-gateway
 
 # Groot Users Service
 cd groot-users-service
@@ -81,4 +81,4 @@ ruby groot-users-service/app.rb  | tee log/dev/groot-users-service.log | sed -e 
 & python groot-credits-service/app.py | tee log/dev/groot-credits-service.log | sed -e 's/^/[groot-credits-service] /' \
 & python groot-gigs-service/app.py | tee log/dev/groot-gigs-service.log | sed -e 's/^/[groot-gigs-service] /' \
 & python groot-voz/app.py | tee log/dev/groot-voz.log | sed -e 's/^/[groot-voz] /' \
-& ./build/groot -u | tee log/dev/groot.log | sed -e 's/^/[groot] /'
+& ./build/groot-api-gateway -u | tee log/dev/groot-api-gateway.log | sed -e 's/^/[groot] /'
