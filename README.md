@@ -114,9 +114,9 @@ Questions on how to add your app to Groot or use the Groot API:
     + Install packages
 
     ```sh
-    go install github.com/acm-uiuc/groot/config
+    go install github.com/acm-uiuc/groot-api-gateway/config
 
-    go install github.com/acm-uiuc/groot/services
+    go install github.com/acm-uiuc/groot-api-gateway/services
     ```
 - Node
     + Install Software
