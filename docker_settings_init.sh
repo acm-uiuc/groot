@@ -14,6 +14,19 @@ GROOT_ACCESS_TOKEN = ''
 STRIPE_SECRET_KEY = ''"
 echo "$credits" > groot-credits-service/settings.py
 
+##### SETUP GIGS #####
+echo "* Setting up GIGS"
+credits="MYSQL = {
+    'user': 'root',
+    'password': 'root',
+    'host': 'db',
+    'dbname': 'groot_gigs_service'
+}
+
+GROOT_SERVICES_URL = 'http://groot-api-gateway:8000'
+GROOT_ACCESS_TOKEN = ''
+echo "$credits" > groot-gigs-service/settings.py
+
 ##### SETUP MEMES #####
 echo "* Setting up MEMES"
 memes="MYSQL = {
