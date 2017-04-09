@@ -225,6 +225,17 @@ Questions on how to add your app to Groot or use the Groot API:
     ```
 9. Wait for the image to build and startup. If it works, you'll be able to visit `https://0.0.0.0:5000` in a browser and see the deployed site. The Groot API will be available on port 8000.
 
+Useful Notes:
+
+* If you want to just rebuild one service (i.e. for dev work), you can keep the `docker-compose` command running, and run this command in a separate terminal window to rebuild the service you're working on:
+    ```
+    docker-compose up -d --build SERVICE
+    ```
+* For dev work you'll probably want to run in unauthenticated mode. To do this, change the `CMD` line in `groot-api-gateway/Dockerfile` to:
+    ```
+    CMD ["./build/groot-api-gateway", "-u"]
+    ```
+
 ## License
 
 This project is licensed under the University of Illinois/NCSA Open Source License. For a full copy of this license take a look at the LICENSE file. 

@@ -1,21 +1,121 @@
 version: '2'
 services:
- db:
+  db:
     image: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ./database_setup.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - db_data:/var/lib/mysql
     ports:
-      - 3306
- groot:
-   build: .
-   command: /bin/bash -c "./docker_go_symlink.sh && ./dev_spinup.sh"
-   working_dir: /groot-deploy
-   volumes:
-     - .:/groot-deploy
-   ports:
-     - "8000:8000"
-     - "5000:5000"
-   depends_on:
-     - db
+      - "3306:3306"
+    restart: always
+
+  groot-api-gateway:
+    build: groot-api-gateway
+    ports:
+      - "8000:8000"
+    volumes: 
+      - groot_api_gateway_volume:/var/groot-api-gateway/
+
+    restart: always
+
+  groot-credits-service:
+    build: groot-credits-service
+    ports:
+      - "8765:8765"
+    depends_on:
+      - db
+      - groot-api-gateway
+    restart: always
+
+  groot-desktop-frontend:
+    build: groot-desktop-frontend
+    depends_on:
+      - groot-api-gateway
+    ports:
+      - "5000:5000"
+    restart: always
+
+  groot-events-service:
+    build: groot-events-service
+    ports:
+      - "8002:8002"
+    depends_on:
+      - groot-api-gateway
+    restart: always
+
+  groot-gigs-service:
+    build: groot-gigs-service
+    ports:
+      - "8964:8964"
+    depends_on:
+      - db
+      - groot-api-gateway
+    restart: always
+
+  groot-groups-service:
+    build: groot-groups-service
+    ports:
+      - "9001:9001"
+    depends_on:
+      - groot-api-gateway
+    restart: always
+
+  groot-meme-service:
+    build: groot-meme-service
+    ports:
+      - "42069:42069"
+    depends_on:
+      - db
+      - groot-api-gateway
+    restart: always
+
+  groot-merch-service:
+    build: groot-merch-service
+    ports:
+      - "6969:6969"
+    depends_on:
+      - db
+      - groot-api-gateway
+    restart: always
+
+  groot-quotes-service:
+    build: groot-quotes-service
+    ports:
+      - "9494:9494"
+    depends_on:
+      - db
+      - groot-api-gateway
+    restart: always
+
+  groot-recruiters-service:
+    build: groot-recruiters-service
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - groot-api-gateway
+    restart: always
+
+  groot-users-service:
+    build: groot-users-service
+    ports:
+      - "8001:8001"
+    depends_on:
+      - db
+      - groot-api-gateway
+    restart: always
+
+  groot-voz:
+    build: groot-voz
+    ports:
+      - "5652:5652"
+    depends_on:
+      - db
+      - groot-api-gateway
+    restart: always
+
+volumes:
+    db_data:
+    groot_api_gateway_volume:
