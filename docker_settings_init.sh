@@ -24,7 +24,7 @@ credits="MYSQL = {
 }
 
 GROOT_SERVICES_URL = 'http://groot-api-gateway:8000'
-GROOT_ACCESS_TOKEN = ''
+GROOT_ACCESS_TOKEN = ''"
 echo "$credits" > groot-gigs-service/settings.py
 
 ##### SETUP MEMES #####
@@ -39,6 +39,12 @@ memes="MYSQL = {
 GROOT_ACCESS_TOKEN = ''
 GROOT_SERVICES_URL = 'http://groot-api-gateway:8000'"
 echo "$memes" > groot-meme-service/settings.py
+
+##### SETUP VOZ #####
+echo "* Setting up VOZ"
+voz="GROOT_URL = 'http://groot-api-gateway:8000'
+GROOT_ACCESS_TOKEN = ''"
+echo "$voz" > groot-voz/settings.py
 
 ##### SETUP MERCH #####
 echo "* Setting up MERCH"
@@ -104,9 +110,27 @@ development:
   name: groot_user_service_dev"
 echo "$users_secrets" > groot-users-service/config/secrets.yaml
 
+##### SETUP DESKTOP #####
+echo "* Setting up DESKTOP"
+desktop="SESSION_TOKEN=INSERT_TOKEN_HERE
+STRIPE_PUBLISHABLE_KEY=CHANGEME
+SERVICES_URL=http://groot-api-gateway:8000"
+echo "$desktop" > groot-desktop-frontend/.env
+
+##### SETUP EVENTS #####
+echo "* Setting up EVENTS"
+events="FACEBOOK_ACCESS_TOKEN=INSERT_TOKEN_HERE
+FACEBOOK_ACM_PAGE_ID=INSERT_PAGE_ID_HERE"
+echo "$events" > groot-events-service/.env
+
 ##### SETUP GROOT #####
 echo "* Setting up GROOT"
 groot_config="package config
+
+import (
+    \"github.com/acm-uiuc/arbor/proxy\"
+    \"github.com/acm-uiuc/arbor/security\"
+)
 
 const RecruiterToken string = \"\"
 const AuthPrefix = \"Basic \"
@@ -131,4 +155,4 @@ func LoadArborConfig() {
     security.ClientRegistryLocation = \"/var/groot-api-gateway/clients.db\"
     proxy.AccessControlPolicy = \"*\"
 }"
-echo "$groot_config" > groot/config/config.go
+echo "$groot_config" > groot-api-gateway/config/config.go

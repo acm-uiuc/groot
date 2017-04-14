@@ -6,5 +6,6 @@ CREATE DATABASE IF NOT EXISTS groot_merch_service_dev;
 CREATE DATABASE IF NOT EXISTS groot_quote_service_dev;
 CREATE DATABASE IF NOT EXISTS groot_recruiter_service_dev;
 CREATE DATABASE IF NOT EXISTS groot_user_service_dev;
+CREATE USER 'root'@'%' IDENTIFIED BY 'root';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 FLUSH PRIVILEGES;
