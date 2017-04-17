@@ -235,6 +235,10 @@ Useful Notes:
     ```
     CMD ["./build/groot-api-gateway", "-u"]
     ```
+* To view logs, run:
+    ```
+    sudo docker-compose logs -f
+    ```
 
 ## License
 
