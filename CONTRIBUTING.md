@@ -1,7 +1,7 @@
 # CONTRIBUTING
 > Thanks for wanting to contribute!
 
-The way we work on Groot is in a sort of bi-modal development mindset. We have 2 sets of development going on at once: hardening development and feature development.
+The way we work on Groot is in a sort of bi-modal development mindset. We have 2 sets of development going on at once: __hardening__ development and __feature__ development.
 
 We organize priorities though releases.
 
