@@ -60,7 +60,7 @@ merch_pi:
     access_key: 'INSERT_TOKEN_HERE'
     ip_address: 'INSERT_IPADDRESS'
 
-development:  
+development_db:  
   user: root
   password: root
   hostname: db
@@ -73,7 +73,7 @@ quotes_secrets="groot:
   access_key: 'GROOT_ACCESS_KEY'
   host: 'http://groot-api-gateway:8000'
 
-development:  
+development_db:  
   user: root
   password: root
   hostname: db
@@ -94,7 +94,7 @@ groot:
 jwt:
   secret: 'SECRET_JWT_TOKEN'
 
-development:  
+development_db:  
   user: root
   password: root
   hostname: db
@@ -107,7 +107,7 @@ users_secrets="groot:
   access_key: 'GROOT_ACCESS_KEY'
   host: 'http://groot-api-gateway:8000'
 
-development:  
+development_db:  
   user: root
   password: root
   hostname: db
@@ -136,7 +136,6 @@ import (
     \"github.com/acm-uiuc/arbor/security\"
 )
 
-const RecruiterToken string = \"\"
 const AuthPrefix = \"Basic \"
 const AuthURL string = \"http://groot-auth-stub-service:8008\"
 const AuthToken string = \"\"
