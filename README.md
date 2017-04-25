@@ -1,6 +1,5 @@
 # Groot
-
-### Deploying Groot is now really easy
+Groot is the next generation web application serving the UIUC Chapter of ACM. It is the replacement for liquid which goes defunct 1/1/2016. 
 
 Groot core development:
 
