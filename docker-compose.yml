@@ -15,7 +15,12 @@ services:
       - "8000:8000"
     volumes: 
       - groot_api_gateway_volume:/var/groot-api-gateway/
+    restart: always
 
+  groot-auth-stub-service:
+    build: groot-auth-stub-service
+    ports:
+      - "8008:8008"
     restart: always
 
   groot-credits-service:
