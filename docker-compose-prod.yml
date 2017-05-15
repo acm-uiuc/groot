@@ -17,12 +17,6 @@ services:
       - groot_api_gateway_volume:/var/groot-api-gateway/
     restart: always
 
-  groot-auth-stub-service:
-    build: groot-auth-stub-service
-    ports:
-      - "8008:8008"
-    restart: always
-
   groot-credits-service:
     build: groot-credits-service
     ports:
@@ -82,6 +76,8 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    environment:
+      RACK_ENV: "production"
 
   groot-quotes-service:
     build: groot-quotes-service
@@ -91,6 +87,8 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    environment:
+      RACK_ENV: "production"
 
   groot-recruiters-service:
     build: groot-recruiters-service
@@ -100,6 +98,8 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    environment:
+      RACK_ENV: "production"
 
   groot-users-service:
     build: groot-users-service
@@ -109,6 +109,8 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    environment:
+      RACK_ENV: "production"
 
   groot-voz:
     build: groot-voz
