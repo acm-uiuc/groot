@@ -215,7 +215,7 @@ Questions on how to add your app to Groot or use the Groot API:
 
 6. Run the settings init script:
     ```sh
-    ./docker_settings_init.sh
+    ./scripts/docker_settings_init.sh
     ```
 7. Start up Docker. (This may involve `docker-machine` if you're on a Mac)
 8. Start the Docker containers:
