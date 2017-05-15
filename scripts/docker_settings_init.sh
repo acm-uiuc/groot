@@ -60,11 +60,11 @@ merch_pi:
     access_key: 'INSERT_TOKEN_HERE'
     ip_address: 'INSERT_IPADDRESS'
 
-development_db:  
+database:  
   user: root
   password: root
   hostname: db
-  name: groot_merch_service_dev"
+  name: groot_merch_service"
 echo "$merch_secrets" > groot-merch-service/config/secrets.yaml
 
 ##### SETUP QUOTES #####
@@ -73,11 +73,11 @@ quotes_secrets="groot:
   access_key: 'GROOT_ACCESS_KEY'
   host: 'http://groot-api-gateway:8000'
 
-development_db:  
+database:  
   user: root
   password: root
   hostname: db
-  name: groot_quote_service_dev"
+  name: groot_quote_service"
 
 echo "$quotes_secrets" > groot-quotes-service/config/secrets.yaml
 
@@ -88,17 +88,18 @@ recruiters_secrets="aws:
     secret_access_key: ''
 
 groot:
-    access_key: 'INSERT_TOKEN_HERE'
+    access_key: 'GROOT_ACCESS_KEY'
     host: 'http://groot-api-gateway:8000'
 
 jwt:
   secret: 'SECRET_JWT_TOKEN'
 
-development_db:  
+database:  
   user: root
   password: root
   hostname: db
-  name: groot_recruiter_service_dev"
+  name: groot_recruiter_service"
+  
 echo "$recruiters_secrets" > groot-recruiters-service/config/secrets.yaml
 
 ##### SETUP USERS #####
@@ -107,11 +108,11 @@ users_secrets="groot:
   access_key: 'GROOT_ACCESS_KEY'
   host: 'http://groot-api-gateway:8000'
 
-development_db:  
+database:  
   user: root
   password: root
   hostname: db
-  name: groot_user_service_dev"
+  name: groot_user_service"
 echo "$users_secrets" > groot-users-service/config/secrets.yaml
 
 ##### SETUP DESKTOP #####
