@@ -8,6 +8,13 @@ services:
     ports:
       - "3306:3306"
     restart: always
+    environment:
+      # Necessary so that MySQL doesn't complain about uninitialized root user.
+      # Our setup script initializes a root password on the first launch.
+      # The MySQL password should be changed by hand to whatever the prod
+      # credentials are as soon as possible, and then service credentials must
+      # be also updated accordingly.
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
   groot-api-gateway:
     build: groot-api-gateway
