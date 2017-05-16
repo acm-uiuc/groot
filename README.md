@@ -117,6 +117,17 @@ Questions on how to add your app to Groot or use the Groot API:
 
     go install github.com/acm-uiuc/groot-api-gateway/services
     ```
+
+    + Copy configuration files
+    ```sh
+    cp [SOME DIRECTORY]/src/github.com/acm-uiuc/groot/config.go.template [SOMEDIRECTORY]/src/github.com/acm-uiuc/groot/config.go
+    ```
+
+    + Copy node package files In the groot/ directory, 
+        * groot-event-services, `cp example.env .env`
+        * groot-desktop-frontend, `cp example.env .env`
+    
+
 - Node
     + Install Software
     ```sh
