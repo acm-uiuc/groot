@@ -98,7 +98,13 @@ database:
   user: root
   password: root
   hostname: db
-  name: groot_recruiter_service"
+  name: groot_recruiter_service
+
+test_database:  
+  user: root
+  password: root
+  hostname: db
+  name: groot_recruiter_service_test"
   
 echo "$recruiters_secrets" > groot-recruiters-service/config/secrets.yaml
 
