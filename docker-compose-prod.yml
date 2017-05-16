@@ -8,8 +8,6 @@ services:
     ports:
       - "3306:3306"
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: "root"
 
   groot-api-gateway:
     build: groot-api-gateway
@@ -17,12 +15,6 @@ services:
       - "8000:8000"
     volumes: 
       - groot_api_gateway_volume:/var/groot-api-gateway/
-    restart: always
-
-  groot-auth-stub-service:
-    build: groot-auth-stub-service
-    ports:
-      - "8008:8008"
     restart: always
 
   groot-credits-service:
@@ -84,6 +76,8 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    environment:
+      RACK_ENV: "production"
 
   groot-quotes-service:
     build: groot-quotes-service
@@ -93,6 +87,8 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    environment:
+      RACK_ENV: "production"
 
   groot-recruiters-service:
     build: groot-recruiters-service
@@ -102,6 +98,8 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    environment:
+      RACK_ENV: "production"
 
   groot-users-service:
     build: groot-users-service
@@ -111,6 +109,8 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    environment:
+      RACK_ENV: "production"
 
   groot-voz:
     build: groot-voz

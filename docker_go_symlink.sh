@@ -1,3 +1,0 @@
-# Only run this inside the docker container...
-mkdir -p $GOPATH/src/github.com/acm-uiuc
-ln -sf /groot-deploy/groot $GOPATH/src/github.com/acm-uiuc/groot

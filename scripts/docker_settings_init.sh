@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Change directory to root groot directory
+scriptsdir=`dirname $0`
+cd "$scriptsdir/.."
+
 ##### SETUP CREDITS #####
 echo "* Setting up CREDITS"
 credits="MYSQL = {
