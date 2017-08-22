@@ -13,21 +13,33 @@ Questions on how to add your app to Groot or use the Groot API:
 ## Groot Projects
 
 - [groot](https://github.com/acm-uiuc/groot) - Infrastructure of ACM@UIUC
-- [groot-api-gateway](https://github.com/acm-uiuc/groot-api-gateway) - API Gateway for the Groot project written in Arbor
-- [groot-auth-stub-service](https://github.com/acm-uiuc/groot-auth-stub-service) - A development authentication service that mocks crowd and returns a fake user
-- [groot-credits-service](https://github.com/acm-uiuc/groot-credits-service) - Unified payment system for ACM@UIUC
+
+### Javascript
+
 - [groot-desktop-frontend](https://github.com/acm-uiuc/groot-desktop-frontend) - Desktop Frontend for Groot
-- [groot-events-service](https://github.com/acm-uiuc/groot-events-service) - The groot events service
+- [groot-events-service](https://github.com/acm-uiuc/groot-events-service) - Manages ACM events
+- [groot-groups-service](https://github.com/acm-uiuc/groot-groups-service) - Manages ACM groups
+- [groot-users-service](https://github.com/acm-uiuc/groot-users-service) - Users Services for Groot
+
+### Python
+
+- [groot-credits-service](https://github.com/acm-uiuc/groot-credits-service) - Unified payment system for ACM@UIUC
 - [groot-gigs-service](https://github.com/acm-uiuc/groot-gigs-service) - Supporting the Groot economy
-- [groot-groups-service](https://github.com/acm-uiuc/groot-groups-service)
-- [groot-groups-store](https://github.com/acm-uiuc/groot-groups-store)
-- [groot-meme-service](https://github.com/acm-uiuc/groot-meme-service) - Me too, thanks
+- [groot-meme-service](https://github.com/acm-uiuc/groot-meme-service) - Internal ACM@UIUC Meme Board
+- [groot-voz](https://github.com/acm-uiuc/groot-voz) - Alexa integrations for Groot
+
+### Ruby
+
+- [groot-auth-stub-service](https://github.com/acm-uiuc/groot-auth-stub-service) - A development authentication service that mocks crowd and returns a fake user
 - [groot-merch-service](https://github.com/acm-uiuc/groot-merch-service) - Groot service for injecting caffeine into your blood stream
 - [groot-quotes-service](https://github.com/acm-uiuc/groot-quotes-service)
 - [groot-recruiters-service](https://github.com/acm-uiuc/groot-recruiters-service) - Recruiter Services for Groot
 - [groot-recruiters-templates-example](https://github.com/acm-uiuc/groot-recruiters-templates-example)
-- [groot-users-service](https://github.com/acm-uiuc/groot-users-service) - Users Services for Groot
-- [groot-voz](https://github.com/acm-uiuc/groot-voz) - Alexa, Burn Down the Office
+
+### Go
+
+- [groot-api-gateway](https://github.com/acm-uiuc/groot-api-gateway) - API Gateway for the Groot project written in Arbor
+
 
 ## Getting Started
 *Note: It is necessary for you to have an ssh key (without a password if you want it to be even easier) attached to your github*
