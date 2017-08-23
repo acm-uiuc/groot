@@ -19,7 +19,6 @@ Questions on how to add your app to Groot or use the Groot API:
 - [groot-desktop-frontend](https://github.com/acm-uiuc/groot-desktop-frontend) - Desktop Frontend for Groot
 - [groot-events-service](https://github.com/acm-uiuc/groot-events-service) - Manages ACM events
 - [groot-groups-service](https://github.com/acm-uiuc/groot-groups-service) - Manages ACM groups
-- [groot-users-service](https://github.com/acm-uiuc/groot-users-service) - Users Services for Groot
 
 ### Python
 
@@ -32,9 +31,10 @@ Questions on how to add your app to Groot or use the Groot API:
 
 - [groot-auth-stub-service](https://github.com/acm-uiuc/groot-auth-stub-service) - A development authentication service that mocks crowd and returns a fake user
 - [groot-merch-service](https://github.com/acm-uiuc/groot-merch-service) - Groot service for injecting caffeine into your blood stream
-- [groot-quotes-service](https://github.com/acm-uiuc/groot-quotes-service)
+- [groot-quotes-service](https://github.com/acm-uiuc/groot-quotes-service) - Manages quotes heard around the ACM office
 - [groot-recruiters-service](https://github.com/acm-uiuc/groot-recruiters-service) - Recruiter Services for Groot
-- [groot-recruiters-templates-example](https://github.com/acm-uiuc/groot-recruiters-templates-example)
+- [groot-recruiters-templates-example](https://github.com/acm-uiuc/groot-recruiters-templates-example) - Holds template used by the Recruiter service to send emails
+- [groot-users-service](https://github.com/acm-uiuc/groot-users-service) - Users Services for Groot
 
 ### Go
 
