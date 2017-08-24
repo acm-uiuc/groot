@@ -15,14 +15,17 @@ services:
     build: groot-api-gateway
     ports:
       - "8000:8000"
-    volumes: 
+    volumes:
       - groot_api_gateway_volume:/var/groot-api-gateway/
+    command: ["./build/groot-api-gateway", "-u"]
     restart: always
 
   groot-auth-stub-service:
     build: groot-auth-stub-service
     ports:
       - "8008:8008"
+    volumes:
+      - ./groot-auth-stub-service:/usr/src/app
     restart: always
 
   groot-credits-service:
@@ -32,6 +35,10 @@ services:
     depends_on:
       - db
       - groot-api-gateway
+    volumes:
+      - ./groot-credits-service:/usr/src/app
+    environment:
+      CREDITS_DEBUG: "True"
     restart: always
 
   groot-desktop-frontend:
@@ -40,6 +47,8 @@ services:
       - groot-api-gateway
     ports:
       - "5000:5000"
+    volumes:
+      - ./groot-desktop-frontend:/usr/src/app
     restart: always
 
   groot-events-service:
@@ -48,6 +57,8 @@ services:
       - "8002:8002"
     depends_on:
       - groot-api-gateway
+    volumes:
+      - ./groot-events-service:/usr/src/app
     restart: always
 
   groot-gigs-service:
@@ -57,6 +68,10 @@ services:
     depends_on:
       - db
       - groot-api-gateway
+    volumes:
+      - ./groot-gigs-service:/usr/src/app
+    environment:
+      GIG_DEBUG: "True"
     restart: always
 
   groot-groups-service:
@@ -65,6 +80,8 @@ services:
       - "9001:9001"
     depends_on:
       - groot-api-gateway
+    volumes:
+      - ./groot-groups-service:/usr/src/app
     restart: always
 
   groot-meme-service:
@@ -74,6 +91,10 @@ services:
     depends_on:
       - db
       - groot-api-gateway
+    volumes:
+      - ./groot-meme-service:/usr/src/app
+    environment:
+      MEME_DEBUG: "True"
     restart: always
 
   groot-merch-service:
@@ -83,6 +104,8 @@ services:
     depends_on:
       - db
       - groot-api-gateway
+    volumes:
+      - ./groot-merch-service:/usr/src/app
     restart: always
 
   groot-quotes-service:
@@ -92,6 +115,8 @@ services:
     depends_on:
       - db
       - groot-api-gateway
+    volumes:
+      - ./groot-quotes-service:/usr/src/app
     restart: always
 
   groot-recruiters-service:
@@ -101,6 +126,8 @@ services:
     depends_on:
       - db
       - groot-api-gateway
+    volumes:
+      - ./groot-recruiters-service:/usr/src/app
     restart: always
 
   groot-users-service:
@@ -110,6 +137,8 @@ services:
     depends_on:
       - db
       - groot-api-gateway
+    volumes:
+      - ./groot-users-service:/usr/src/app
     restart: always
 
   groot-voz:
@@ -119,6 +148,10 @@ services:
     depends_on:
       - db
       - groot-api-gateway
+    volumes:
+      - ./groot-voz:/usr/src/app
+    environment:
+      VOZ_DEBUG: "True"
     restart: always
 
 volumes:
