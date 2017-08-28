@@ -49,6 +49,8 @@ services:
     depends_on:
       - groot-api-gateway
     restart: always
+    environment:
+      TZ: "America/Chicago"
 
   groot-gigs-service:
     build: groot-gigs-service
