@@ -5,6 +5,9 @@ build
 log
 
 groot*
+canopy
+display 
+
 npm-debug.log
 
 clients.db
