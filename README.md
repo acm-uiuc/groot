@@ -77,6 +77,10 @@ Groot is the next generation web application serving the UIUC Chapter of ACM. It
     ```
 9. Wait for the image to build and startup. If it works, you'll be able to visit `https://0.0.0.0:5000` in a browser and see the deployed site. The Groot API will be available on port 8000.
 
+    a. If you see errors it is most likely because you need to create configuration files for each of the services. 
+       For each service with an error, copy and rename the `template` file to the name of the file minus template. 
+       For example `groot-api-gateway/config/config.go.template` should be copied and renamed to `groot-api-gateway/config/config.go`
+
 Useful Notes:
 
 * If you want to just rebuild one service (i.e. for dev work), you can keep the `docker-compose` command running, and run this command in a separate terminal window to rebuild the service you're working on:
