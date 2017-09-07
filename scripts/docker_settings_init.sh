@@ -41,7 +41,10 @@ memes="MYSQL = {
 }
 
 GROOT_ACCESS_TOKEN = ''
-GROOT_SERVICES_URL = 'http://groot-api-gateway:8000'"
+GROOT_SERVICES_URL = 'http://groot-api-gateway:8000'
+
+IMGUR_CLIENT_ID = ''
+IMGUR_CLIENT_SECRET = ''"
 echo "$memes" > groot-meme-service/settings.py
 
 ##### SETUP VOZ #####
