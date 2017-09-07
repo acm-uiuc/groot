@@ -34,8 +34,65 @@ Groot is the next generation web application serving the UIUC Chapter of ACM. It
 
 - [groot-api-gateway](https://github.com/acm-uiuc/groot-api-gateway) - API Gateway for the Groot project written in Arbor
 
+## Setting Up Groot
 
-## Getting Started
+1. Follow [these](https://docs.docker.com/compose/install/#uninstallation) instructions to install Docker and docker-compose.
+2. Install repo - https://android.googlesource.com/tools/repo/
+
+    Mac OS
+    ```sh
+    brew install repo 
+    ```
+
+    Ubuntu 14.04+
+    ```sh    
+    sudo apt install repo
+
+    ```
+3. Make a directory to house your groot work
+    ```sh
+    mkdir groot-deploy
+    ```
+    
+4. Within this directory run the following command to start managing the projects
+
+    ```sh    
+    repo init -u git@github.com:acm-uiuc/groot-manifest
+    ```
+    
+5. Run the following command to grab the latest releases of all services, including the frontend
+
+    ```sh    
+    repo sync
+    ```
+
+6. Run the settings init script:
+    ```sh
+    ./scripts/docker_settings_init.sh
+    ```
+7. Start up Docker. (This may involve `docker-machine` if you're on a Mac)
+8. Start the Docker containers:
+    ```sh
+    docker-compose up
+    ```
+9. Wait for the image to build and startup. If it works, you'll be able to visit `https://0.0.0.0:5000` in a browser and see the deployed site. The Groot API will be available on port 8000.
+
+Useful Notes:
+
+* If you want to just rebuild one service (i.e. for dev work), you can keep the `docker-compose` command running, and run this command in a separate terminal window to rebuild the service you're working on:
+    ```
+    docker-compose up -d --build SERVICE
+    ```
+* For dev work you'll probably want to run in unauthenticated mode. To do this, change the `CMD` line in `groot-api-gateway/Dockerfile` to:
+    ```
+    CMD ["./build/groot-api-gateway", "-u"]
+    ```
+* To view logs, run:
+    ```
+    sudo docker-compose logs -f
+    ```
+
+## Legacy Instructions
 *Note: It is necessary for you to have an ssh key (without a password if you want it to be even easier) attached to your github*
 
 1. Install repo - https://android.googlesource.com/tools/repo/
@@ -71,7 +128,7 @@ Groot is the next generation web application serving the UIUC Chapter of ACM. It
 5. Run the ```dev_spinup.sh``` script to start up a dev instance of groot (will grab the latest version of each service on github)
 6. Run the ```prod_spinup.sh``` script to start a production version of groot (will grab the latest version of each and place them in their respective containers, so you will need docker)
 
-# First Time Setup
+### First Time Setup
 - Golang 
     + Install Software 
     ```sh
@@ -204,64 +261,6 @@ Groot is the next generation web application serving the UIUC Chapter of ACM. It
     mysql> CREATE DATABASE acm_users;
     mysql> CREATE DATABASE groot_meme_service;
     mysql> CREATE DATABASE groot_quotes_service;
-    ```
-
-## Deploying with Docker
-
-1. Follow [these](https://docs.docker.com/compose/install/#uninstallation) instructions to install Docker and docker-compose.
-2. Install repo - https://android.googlesource.com/tools/repo/
-
-    Mac OS
-    ```sh
-    brew install repo 
-    ```
-
-    Ubuntu 14.04+
-    ```sh    
-    sudo apt install repo
-
-    ```
-3. Make a directory to house your groot work
-    ```sh
-    mkdir groot-deploy
-    ```
-    
-4. Within this directory run the following command to start managing the projects
-
-    ```sh    
-    repo init -u git@github.com:acm-uiuc/groot-manifest
-    ```
-    
-5. Run the following command to grab the latest releases of all services, including the frontend
-
-    ```sh    
-    repo sync
-    ```
-
-6. Run the settings init script:
-    ```sh
-    ./scripts/docker_settings_init.sh
-    ```
-7. Start up Docker. (This may involve `docker-machine` if you're on a Mac)
-8. Start the Docker containers:
-    ```sh
-    docker-compose up
-    ```
-9. Wait for the image to build and startup. If it works, you'll be able to visit `https://0.0.0.0:5000` in a browser and see the deployed site. The Groot API will be available on port 8000.
-
-Useful Notes:
-
-* If you want to just rebuild one service (i.e. for dev work), you can keep the `docker-compose` command running, and run this command in a separate terminal window to rebuild the service you're working on:
-    ```
-    docker-compose up -d --build SERVICE
-    ```
-* For dev work you'll probably want to run in unauthenticated mode. To do this, change the `CMD` line in `groot-api-gateway/Dockerfile` to:
-    ```
-    CMD ["./build/groot-api-gateway", "-u"]
-    ```
-* To view logs, run:
-    ```
-    sudo docker-compose logs -f
     ```
 
 ## License
