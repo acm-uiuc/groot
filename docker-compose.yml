@@ -142,6 +142,14 @@ services:
     volumes:
       - ./groot-users-service:/usr/src/app
     restart: always
+  groot-sponsor-store:
+     build: groot-sponsor-store
+     ports: 
+     - "9898:9898"
+     depends_on:
+       - ./groot-users-service:/usr/scr/app
+      restart: always
+
 
   groot-voz:
     build: groot-voz
