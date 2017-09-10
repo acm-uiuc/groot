@@ -155,7 +155,18 @@ services:
     environment:
       VOZ_DEBUG: "True"
     restart: always
-
+groot-request-service:
+        build: groot-request-service
+        ports:
+         - "7932:7932"
+        depends_on:
+         - db
+         - groot-api-gateway
+        volumes:
+         - ./groot-request-service:/usr/src/app
+        envoirment:
+           VOZ_DEBUG: "True"
+        restart: always
 volumes:
     db_data:
     groot_api_gateway_volume:
