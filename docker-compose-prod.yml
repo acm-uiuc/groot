@@ -88,6 +88,14 @@ services:
     environment:
       RACK_ENV: "production"
 
+  groot-notification-service:
+    build: groot-notification-service
+    ports:
+      - "1122:1122"
+    depends_on:
+      - groot-api-gateway
+    restart: always
+
   groot-quotes-service:
     build: groot-quotes-service
     ports:
