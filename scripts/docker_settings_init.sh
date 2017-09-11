@@ -47,6 +47,29 @@ IMGUR_CLIENT_ID = ''
 IMGUR_CLIENT_SECRET = ''"
 echo "$memes" > groot-meme-service/settings.py
 
+##### SETUP NOTIFICATION #####
+echo "* Setting up NOTIFICATION"
+notification="GROOT_SERVICES_URL = 'http://localhost:8000'
+GROOT_ACCESS_TOKEN = ''
+
+TWITTER = {
+    'consumer_key': '',
+    'consumer_secret': '',
+    'access_key': '',
+    'access_secret': ''
+}
+
+SLACK_API_TOKEN = ''
+
+EMAIL = {
+    'host': '',
+    'port': '',
+    'username': '',
+    'password': ''
+}
+"
+echo "$notification" > groot-notification-service/settings.py
+
 ##### SETUP VOZ #####
 echo "* Setting up VOZ"
 voz="GROOT_URL = 'http://groot-api-gateway:8000'
