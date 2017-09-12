@@ -47,6 +47,40 @@ IMGUR_CLIENT_ID = ''
 IMGUR_CLIENT_SECRET = ''"
 echo "$memes" > groot-meme-service/settings.py
 
+##### SETUP REQUEST #####
+echo "* Setting up REQUEST"
+request="MYSQL = {
+    'user': 'root',
+    'password': 'root',
+    'host': 'db',
+    'dbname': 'groot_request_service'
+}
+"
+echo "$request" > groot-request-service/settings.py
+
+##### SETUP NOTIFICATION #####
+echo "* Setting up NOTIFICATION"
+notification="GROOT_SERVICES_URL = 'http://localhost:8000'
+GROOT_ACCESS_TOKEN = ''
+
+TWITTER = {
+    'consumer_key': '',
+    'consumer_secret': '',
+    'access_key': '',
+    'access_secret': ''
+}
+
+SLACK_API_TOKEN = ''
+
+EMAIL = {
+    'host': '',
+    'port': '',
+    'username': '',
+    'password': ''
+}
+"
+echo "$notification" > groot-notification-service/settings.py
+
 ##### SETUP VOZ #####
 echo "* Setting up VOZ"
 voz="GROOT_URL = 'http://groot-api-gateway:8000'
@@ -158,8 +192,10 @@ const GroupsURL = \"http://groot-groups-service:9001\"
 const HardwareURL = \"http://groot:4523/api/v1.0\"
 const MemesURL = \"http://groot-meme-service:42069\"
 const MerchURL = \"http://groot-merch-service:6969\"
+const NotificationURL = \"http://groot-notification-service:1122\"
 const QuotesURL = \"http://groot-quotes-service:9494\"
 const RecruiterURL = \"http://groot-recruiters-service:4567\"
+const RequestURL = \"http://groot-request-service:5656\"
 const UsersURL = \"http://groot-users-service:8001\"
 
 //Arbor configurations

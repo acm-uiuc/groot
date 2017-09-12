@@ -110,6 +110,18 @@ services:
       - ./groot-merch-service:/usr/src/app
     restart: always
 
+  groot-notification-service:
+    build: groot-notification-service
+    ports:
+      - "1122:1122"
+    depends_on:
+      - groot-api-gateway
+    volumes:
+      - ./groot-notification-service:/usr/src/app
+    environment:
+      NOTIFICATION_DEBUG: "True"
+    restart: always
+
   groot-quotes-service:
     build: groot-quotes-service
     ports:
@@ -130,6 +142,19 @@ services:
       - groot-api-gateway
     volumes:
       - ./groot-recruiters-service:/usr/src/app
+    restart: always
+
+  groot-request-service:
+    build: groot-request-service
+    ports:
+      - "5656:5656"
+    depends_on:
+      - db
+      - groot-api-gateway
+    volumes:
+      - ./groot-request-service:/usr/src/app
+    environment:
+      REQUEST_DEBUG: "True"
     restart: always
 
   groot-users-service:
