@@ -144,6 +144,19 @@ services:
       - ./groot-recruiters-service:/usr/src/app
     restart: always
 
+  groot-request-service:
+    build: groot-request-service
+    ports:
+      - "5656:5656"
+    depends_on:
+      - db
+      - groot-api-gateway
+    volumes:
+      - ./groot-request-service:/usr/src/app
+    environment:
+      REQUEST_DEBUG: "True"
+    restart: always
+
   groot-users-service:
     build: groot-users-service
     ports:

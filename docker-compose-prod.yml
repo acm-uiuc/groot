@@ -118,6 +118,14 @@ services:
     environment:
       RACK_ENV: "production"
 
+  groot-request-service:
+    build: groot-request-service
+    ports:
+      - "5656:5656"
+    depends_on:
+      - groot-api-gateway
+    restart: always
+
   groot-users-service:
     build: groot-users-service
     ports:

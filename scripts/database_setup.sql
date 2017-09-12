@@ -4,6 +4,7 @@ CREATE DATABASE IF NOT EXISTS groot_meme_service;
 CREATE DATABASE IF NOT EXISTS groot_merch_service;
 CREATE DATABASE IF NOT EXISTS groot_quote_service;
 CREATE DATABASE IF NOT EXISTS groot_recruiter_service;
+CREATE DATABASE IF NOT EXISTS groot_request_service;
 CREATE DATABASE IF NOT EXISTS groot_user_service;
 CREATE USER 'root'@'%' IDENTIFIED BY 'root';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
