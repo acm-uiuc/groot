@@ -80,10 +80,10 @@ if x == 1 {
 }
 ```
 __Ruby__: 
-  good indenting basically 
+  Use the rubocop linters in the repos
 
 __Python__:
-  You already have enough problems, we dont need to add anymore
+  Follow PEP8
 
 
 ### License Header 
