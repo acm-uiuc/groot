@@ -11,6 +11,16 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "root"
 
+  groot-ad-service:
+    build: groot-ad-service
+    ports:
+      - "8998:8998"
+    depends_on:
+      - groot-api-gateway
+    volumes:
+      - ./groot-ad-service:/usr/src/app
+    restart: always
+
   groot-api-gateway:
     build: groot-api-gateway
     ports:
