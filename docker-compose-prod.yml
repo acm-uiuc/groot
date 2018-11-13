@@ -16,6 +16,16 @@ services:
       # be also updated accordingly.
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
+  groot-ad-service:
+    build: groot-ad-service
+    ports:
+      - "8998:8998"
+    depends_on:
+      - groot-api-gateway
+    volumes:
+      - ./groot-ad-service:/usr/src/app
+    restart: always
+
   groot-api-gateway:
     build: groot-api-gateway
     ports:
