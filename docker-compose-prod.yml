@@ -15,6 +15,11 @@ services:
       # credentials are as soon as possible, and then service credentials must
       # be also updated accordingly.
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    healthcheck:
+      test: ["CMD", "/usr/bin/mysql", "--host=localhost", "--port=3306", "--user=root", "--password=$MYSQL_ROOT_PASSWORD", "-e", "'show databases;'"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   groot-ad-service:
     build: groot-ad-service
@@ -33,6 +38,11 @@ services:
     volumes: 
       - groot_api_gateway_volume:/var/groot-api-gateway/
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   groot-credits-service:
     build: groot-credits-service
@@ -42,6 +52,11 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8765"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   groot-desktop-frontend:
     build: groot-desktop-frontend
@@ -50,6 +65,11 @@ services:
     ports:
       - "5000:5000"
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   groot-events-service:
     build: groot-events-service
@@ -60,6 +80,11 @@ services:
     restart: always
     environment:
       TZ: "America/Chicago"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   groot-gigs-service:
     build: groot-gigs-service
@@ -69,6 +94,11 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8964"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   groot-groups-service:
     build: groot-groups-service
@@ -77,6 +107,11 @@ services:
     depends_on:
       - groot-api-gateway
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9001"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   groot-meme-service:
     build: groot-meme-service
@@ -86,6 +121,11 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:42069"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   groot-merch-service:
     build: groot-merch-service
@@ -95,6 +135,11 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6969"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
     environment:
       RACK_ENV: "production"
 
@@ -114,6 +159,11 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9494"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
     environment:
       RACK_ENV: "production"
 
@@ -125,6 +175,11 @@ services:
       - db
       - groot-api-gateway
     restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
     environment:
       RACK_ENV: "production"
 
@@ -146,6 +201,11 @@ services:
     restart: always
     environment:
       RACK_ENV: "production"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 
   groot-voz:
     build: groot-voz
@@ -155,7 +215,11 @@ services:
       - db
       - groot-api-gateway
     restart: always
-
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5652"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
 volumes:
     db_data:
     groot_api_gateway_volume:
